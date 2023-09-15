@@ -35,11 +35,12 @@ class Venta_model extends CI_Model
       if (isset($postData['search'])) {
          // Select record
          $this->db->select('*');
-         $this->db->FROM('bddjuguetes.producto'); //tabla productos
-         $this->db->JOIN('bddjuguetes.marca ', 'marca.idMarca = producto.idMarca');
-         $this->db->JOIN('bddjuguetes.categoria', 'categoria.idCategoria = producto.idCategoria');
-         $this->db->where("producto.nombreProducto like '%" . $postData['search'] . "%' ");
+         $this->db->from('bddjuguetes.producto'); //tabla productos
+         $this->db->join('bddjuguetes.marca', 'marca.idMarca = producto.idMarca');
+         $this->db->join('bddjuguetes.categoria', 'categoria.idCategoria = producto.idCategoria');
+         $this->db->where("(producto.codigo LIKE '%" . $postData['search'] . "%' OR producto.nombreProducto LIKE '%" . $postData['search'] . "%')");
          $this->db->where('producto.estado', '1'); //condición where estado = 1
+         
 
 
          $records = $this->db->get()->result();

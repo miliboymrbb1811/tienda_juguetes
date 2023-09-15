@@ -110,7 +110,7 @@
 
                             <label class="col-form-label col-md-1 label-align" for="nombre">Nombre /     codigo:</label>
                             <div class="col-md-3">
-                                <input type="search" class="form-control" value="" name="producto" id="producto" placeholder="Escriba nombre del producto" />
+                                <input type="search" class="form-control" value="" name="codigo" id="codigo" placeholder="Escriba codigo del producto" />
                                 <input type="hidden" name="producto1" id="producto1" value="">
 
                             </div>
@@ -126,26 +126,16 @@
                             <label class="col-form-label col-md-1 label-align">Precio Unitario:</label>
                             <div class="col-md-3">
                                 <input name="precioU" disabled id="precioU" class="form-control" value="" placeholder="Sin precio unitario"></input>
-                                <!-- <input type="hidden" name="precioU1" id="precioU1" value="0"> -->
+                            
 
                             </div>
-                            <!-- <input type="hidden" name="idProducto" id="idProducto" value="0"> -->
+                         
                         </div>
 
 
 
-                        <!-- <div class="item form-group has-feedback">
-                            <label class="col-form-label col-md-1 label-align" for="numerocelular">Cantidad:</label>
-                            <div class="col-md-3">
-                                <input type="number" id="cantidad" value="0" name="cantidad" class="form-control" placeholder="0">
-
-                            </div>
-                            <label class="col-form-label col-md-1 label-align">Total:</label>
-                            <div class="col-md-3">
-                                <input type="number" name="totalPrecio" id="totalPrecio" class="form-control">
-                            </div>
-                        </div> -->
-                        <button id="agregarTabla" disabled type="text" class="btn btn-outline-warning btn-block">
+                       
+                        <button id="addProduct" disabled type="text" class="btn btn-outline-warning btn-block">
                             <i class="fa fa-plus-circle"></i> Agregar a la tabla
                         </button>
 
@@ -333,10 +323,10 @@
 
 
 <script>
-    let producto = [];
+    let codigo = [];
     let cliente = [];
 
-    $("#producto").autocomplete({
+    $("#codigo").autocomplete({
         source: function(request, response) {
             // Fetch data
             $.ajax({
@@ -356,10 +346,10 @@
             });
         },
         select: function(event, ui) {
-            $('#producto').val(ui.item.nombre); // display the selected text
+            $('#codigo').val(ui.item.nombre + ' - ' + ui.item.codigo); // display the selected text
             $('#marca').val(ui.item.marca); // display the selected text
             $('#precioU').val(ui.item.precioUnitario); // save selected id to input
-            $('button[id=agregarTabla]').removeAttr('disabled');
+            $('button[id=addProduct]').removeAttr('disabled');
             producto = ui.item;
             return false;
         }
@@ -398,24 +388,25 @@
     console.log(producto);
     let count = 0;
     $(document).ready(function() {
-        $("#agregarTabla").click(function() {
+        $("#addProduct").click(function() {
             // Para este ejemplo, en realidad no envíe el formulario
-            event.preventDefault();
-            markup = "<tr name='fila' id='fila" + count + "' class='even pointer'>" +
-                "<td> <img id='productos' width='100' height='100' src='<?php echo  base_url(); ?>uploads/products_images/" + producto.foto + "'alt=''></td>" +
-                "<td>" + producto.nombre + "<input class='form-control' name='idProducto[]' hidden type='number' value=" + producto.idProducto + " ></td>" +
-                "<td>" + producto.marca + "</td>" +
-                "<td name='precio'>" + producto.precioUnitario + "</td>" +
-                "<td >" + producto.stock + "<input class='form-control stock' name='stock[]' hidden type='number' value=" + producto.stock + " ></td>" +
-                "<td><input class='form-control' name='cantidad[]' onchange='cambiarSubtotal()' type='number' value='1' ></td>" +
-                "<td>" + producto.codigo + "</td>" +
-                "<td ><input class='form-control' name='subtotal[]' id='subtotal'  type='number' value=" + producto.precioUnitario + " ></td>" +
-                "<td> <input type='button' class='form-control'  onclick='eliminarFila(" + count + ");' value='Eliminar' /></td>" +
-                "</tr>";
-            tableBody = $("#bodyTabla");
-            tableBody.append(markup);
-            count += 1;
-            cambiarTotal();
+            console.log("soy freeedy")
+                        event.preventDefault();
+            // markup = "<tr name='fila' id='fila" + count + "' class='even pointer'>" +
+            //     "<td> <img id='productos' width='100' height='100' src='<?php echo  base_url(); ?>uploads/products_images/" + producto.foto + "'alt=''></td>" +
+            //     "<td>" + producto.nombre + "<input class='form-control' name='idProducto[]' hidden type='number' value=" + producto.idProducto + " ></td>" +
+            //     "<td>" + producto.marca + "</td>" +
+            //     "<td name='precio'>" + producto.precioUnitario + "</td>" +
+            //     "<td >" + producto.stock + "<input class='form-control stock' name='stock[]' hidden type='number' value=" + producto.stock + " ></td>" +
+            //     "<td><input class='form-control' name='cantidad[]' onchange='cambiarSubtotal()' type='number' value='1' ></td>" +
+            //     "<td>" + producto.codigo + "</td>" +
+            //     "<td ><input class='form-control' name='subtotal[]' id='subtotal'  type='number' value=" + producto.precioUnitario + " ></td>" +
+            //     "<td> <input type='button' class='form-control'  onclick='eliminarFila(" + count + ");' value='Eliminar' /></td>" +
+            //     "</tr>";
+            // tableBody = $("#bodyTabla");
+            // tableBody.append(markup);
+            // count += 1;
+            // cambiarTotal();
 
         });
     });
