@@ -24,73 +24,8 @@
     </div>
     <!-- Inicio Div Right Col Role Main -->
     <div class="container md-3">
-        <!-- Inicio Div container md-3 -->
-        <div class="row">
-            <!-- Inicio Div row -->
-            <div class="col-md-12 col-sm-12 ">
-                <!-- Inicio Div col-md-12 col-sm-12  -->
-                <div class="x_panel bg-dark text-white">
-                    <!-- Inicio Div x_panel -->
-                    <div class="x_title">
-                        <h2>Datos del Cliente</h2>
-                        <div class="clearfix">
-                        </div>
+    <input hidden name="idUsuario" id="idUsuario" value="<?php echo $_SESSION['idusuario'] ?>">
 
-                    </div>
-                    <div class="x_content">
-                        <!-- Inicio Div x_content -->
-
-                        <br>
-                        <p class="text-muted font-13 m-b-30">
-                            Usted va a insertar una nueva venta, por favor llene el siguiente campo:
-                        </p>
-
-                        <div class="item form-group has-feedback">
-                            <label class="col-form-label col-md-1 label-align">Carnet Identidad:</label>
-                            <div class="col-md-5">
-                                <input type="search" name="carnet" id="carnet" class="form-control"></input>
-                            </div>
-                            <input hidden name="idCliente" id="idCliente" value="0">
-                            <input hidden name="idUsuario" id="idUsuario" value="<?php echo $_SESSION['idusuario'] ?>">
-
-
-                            <label class="col-form-label col-md-1 label-align" for="nombre">Nombre Cliente:</label>
-                            <div class="col-md-5">
-                                <input class="form-control" disabled name="nombre" id="nombre" placeholder="Sin nombre" />
-                                <div id="suggestions">
-                                    <ul id="autoSuggestionsList"></ul>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="item form-group has-feedback">
-
-                            <label class="col-form-label col-md-1 label-align" for="primerapellido">Primer apellido:</label>
-
-                            <div class="col-md-5">
-                                <input id="primerA" disabled class="form-control" placeholder="Sin primer apellido" value=""></input>
-                            </div>
-
-                            <label class="col-form-label col-md-1 label-align" for="primerapellido">Segundo Apellido:</label>
-
-                            <div class="col-md-5">
-                                <input id="segundoA" disabled class="form-control" placeholder="Sin segundo apellido" value=""></input>
-                            </div>
-                            <!-- <input type="hidden" name="idProducto[]" id="idProducto[]" value="0"> -->
-                        </div>
-                        <div class="item form-group has-feedback">
-                            <div class="col-md">
-                                <label for="">&nbsp;</label>
-                                <button class="btn btn-outline-primary btn-block" data-toggle="modal" data-target="#modal-default1">
-                                    <span class="fa fa-plus-circle"></span> Agregar Cliente</button>
-                            </div>
-                        </div>
-                    </div><!-- Fin Div x_content -->
-                </div><!-- Fin Div x_panel -->
-            </div><!-- Fin Div col-md-12 col-sm-12  -->
-        </div><!-- Fin Div row -->
 
         <div class="row">
             <!-- Inicio Div row -->
@@ -110,7 +45,7 @@
 
                             <label class="col-form-label col-md-1 label-align" for="nombre">Nombre /     codigo:</label>
                             <div class="col-md-3">
-                                <input type="search" class="form-control" value="" name="producto" id="producto" placeholder="Escriba nombre del producto" />
+                                <input type="search" class="form-control" value="" name="producto" id="producto" placeholder="Escriba codigo del producto" />
                                 <input type="hidden" name="producto1" id="producto1" value="">
 
                             </div>
@@ -126,26 +61,16 @@
                             <label class="col-form-label col-md-1 label-align">Precio Unitario:</label>
                             <div class="col-md-3">
                                 <input name="precioU" disabled id="precioU" class="form-control" value="" placeholder="Sin precio unitario"></input>
-                                <!-- <input type="hidden" name="precioU1" id="precioU1" value="0"> -->
+                            
 
                             </div>
-                            <!-- <input type="hidden" name="idProducto" id="idProducto" value="0"> -->
+                         
                         </div>
 
 
 
-                        <!-- <div class="item form-group has-feedback">
-                            <label class="col-form-label col-md-1 label-align" for="numerocelular">Cantidad:</label>
-                            <div class="col-md-3">
-                                <input type="number" id="cantidad" value="0" name="cantidad" class="form-control" placeholder="0">
-
-                            </div>
-                            <label class="col-form-label col-md-1 label-align">Total:</label>
-                            <div class="col-md-3">
-                                <input type="number" name="totalPrecio" id="totalPrecio" class="form-control">
-                            </div>
-                        </div> -->
-                        <button id="agregarTabla" disabled type="text" class="btn btn-outline-warning btn-block">
+                       
+                        <button id="addProduct" disabled type="text" class="btn btn-outline-warning btn-block">
                             <i class="fa fa-plus-circle"></i> Agregar a la tabla
                         </button>
 
@@ -356,66 +281,40 @@
             });
         },
         select: function(event, ui) {
-            $('#producto').val(ui.item.nombre); // display the selected text
+            $('#producto').val(ui.item.nombre + ' - ' + ui.item.codigo); // display the selected text
             $('#marca').val(ui.item.marca); // display the selected text
             $('#precioU').val(ui.item.precioUnitario); // save selected id to input
-            $('button[id=agregarTabla]').removeAttr('disabled');
+            $('button[id=addProduct]').removeAttr('disabled');
             producto = ui.item;
             return false;
         }
     });
 
 
-    $("#carnet").autocomplete({
-        source: function(request, response) {
-            // Fetch data
-            $.ajax({
-                url: "<?= base_url() ?>index.php/venta/clientList",
-                type: 'post',
-                dataType: "json",
-                data: {
-                    search: request.term
-                },
-                success: function(data) {
-                    // console.log(data);
-                    response(data);
-                }
-            });
-        },
-        select: function(event, ui) {
-            // Set selection
-            $('#carnet').val(ui.item.value); // display the selected text
-            $('#primerA').val(ui.item.primerApellido); // display the selected text
-            $('#segundoA').val(ui.item.segundoApellido); // display the selected text
-            $('#nombre').val(ui.item.nombre); // save selected id to input
-            $('#idCliente').val(ui.item.idPersona); // save selected id to input
-            cliente = ui.item;
 
-            return false;
-        }
-    });
 
     console.log(producto);
     let count = 0;
     $(document).ready(function() {
-        $("#agregarTabla").click(function() {
+        $("#addProduct").click(function() {
             // Para este ejemplo, en realidad no envíe el formulario
-            event.preventDefault();
-            markup = "<tr name='fila' id='fila" + count + "' class='even pointer'>" +
-                "<td> <img id='productos' width='100' height='100' src='<?php echo  base_url(); ?>uploads/products_images/" + producto.foto + "'alt=''></td>" +
-                "<td>" + producto.nombre + "<input class='form-control' name='idProducto[]' hidden type='number' value=" + producto.idProducto + " ></td>" +
-                "<td>" + producto.marca + "</td>" +
-                "<td name='precio'>" + producto.precioUnitario + "</td>" +
-                "<td >" + producto.stock + "<input class='form-control stock' name='stock[]' hidden type='number' value=" + producto.stock + " ></td>" +
-                "<td><input class='form-control' name='cantidad[]' onchange='cambiarSubtotal()' type='number' value='1' ></td>" +
-                "<td>" + producto.codigo + "</td>" +
-                "<td ><input class='form-control' name='subtotal[]' id='subtotal'  type='number' value=" + producto.precioUnitario + " ></td>" +
-                "<td> <input type='button' class='form-control'  onclick='eliminarFila(" + count + ");' value='Eliminar' /></td>" +
-                "</tr>";
-            tableBody = $("#bodyTabla");
-            tableBody.append(markup);
-            count += 1;
-            cambiarTotal();
+            console.log("soy freeedy")
+                        event.preventDefault();
+             markup = "<tr name='fila' id='fila" + count + "' class='even pointer'>" +
+                 "<td> <img id='productos' width='100' height='100' src='<?php echo  base_url(); ?>uploads/products_images/" + producto.foto + "'alt=''></td>" +
+                 "<td>" + producto.nombre + "<input class='form-control' name='idProducto[]' hidden type='number' value=" + producto.idProducto + " ></td>" +
+                 "<td>" + producto.marca + "</td>" +
+                 "<td name='precio'>" + producto.precioUnitario + "</td>" +
+                 "<td >" + producto.stock + "<input class='form-control stock' name='stock[]' hidden type='number' value=" + producto.stock + " ></td>" +
+                 "<td><input class='form-control' name='cantidad[]' onchange='cambiarSubtotal()' type='number' value='1' ></td>" +
+                 "<td>" + producto.codigo + "</td>" +
+                 "<td ><input class='form-control' name='subtotal[]' id='subtotal'  type='number' value=" + producto.precioUnitario + " ></td>" +
+                 "<td> <input type='button' class='form-control'  onclick='eliminarFila(" + count + ");' value='Eliminar' /></td>" +
+                 "</tr>";
+             tableBody = $("#bodyTabla");
+             tableBody.append(markup);
+             count += 1;
+             cambiarTotal();
 
         });
     });
@@ -485,7 +384,7 @@
         const formData = new FormData($("#formulario12")[0]);
         formData.append("total", document.getElementById("total").value);
         formData.append("idUsuario", document.getElementById("idUsuario").value);
-        formData.append("idCliente", cliente.idPersona);
+        formData.append("idCliente",3);
 
 
         $.ajax({
@@ -524,24 +423,6 @@
         });
 
 
-        // fetch('index.php/venta/insertVenta2', {
-        //         method: 'POST',
-        //         body: formData
-        //     })
-        //     .then(function(response) {
-        //         if (response.ok) {
-        //             return response.text()
-        //         } else {
-        //             throw "Error en la llamada Ajax";
-        //         }
-
-        //     })
-        //     .then(function(texto) {
-        //         console.log(texto);
-        //     })
-        //     .catch(function(err) {
-        //         console.log(err);
-        //     });
 
         console.log("Form Data");
         for (let obj of formData) {
