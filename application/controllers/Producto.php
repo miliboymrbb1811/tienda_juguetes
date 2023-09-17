@@ -119,10 +119,10 @@ class Producto extends CI_Controller
                 $data['idMarca'] = $_POST['idmarca'];
                 $data['idCategoria'] = $_POST['idcategoria'];
                 $data['precio'] = $_POST['precio'];
-                $data['codigo'] = strtoupper($_POST['codigo']);
+                $data['codigo'] = mb_strtoupper($_POST['codigo']);
                 $data['stock'] = $_POST['stock'];
-                $data['descripcion'] = strtoupper($_POST['descripcion']);
-                $data['nombreProducto'] = strtoupper($_POST['nombre']);
+                $data['descripcion'] = mb_strtoupper($_POST['descripcion']);
+                $data['nombreProducto'] = mb_strtoupper($_POST['nombre']);
     
                 $data['foto'] = $nombreCompleto;
     
@@ -157,13 +157,13 @@ class Producto extends CI_Controller
         $idproducto = $_POST['idproducto'];
 
         
-        $data['nombreProducto'] = $_POST['nombre'];
+        $data['nombreProducto'] =mb_strtoupper($_POST['nombre']);
         $data['idMarca'] = $_POST['idmarca'];
         $data['idCategoria'] = $_POST['idcategoria'];
         $data['precio'] = $_POST['precio'];
-        $data['codigo'] = strtoupper($_POST['codigo']);
+        $data['codigo'] = mb_strtoupper($_POST['codigo']);
         $data['stock'] = $_POST['stock'];
-        $data['descripcion'] = $_POST['descripcion'];
+        $data['descripcion'] = mb_strtoupper($_POST['descripcion']);
         $data['fechaActualizacion'] = date('Y-m-d H:i:s');
 
 

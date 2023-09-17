@@ -63,7 +63,7 @@
                                                 <th>Producto</th>
                                                 <th>Total</th>
                                                 <th>Estado</th>
-                                                <th>fechaRegistro</th>
+                                                <th>fecha Venta</th>
                                                 <th>Reporte</th>
                                                 <th>Cancelar</th>
                                             </tr>
@@ -73,36 +73,23 @@
                                             foreach ($venta->result() as $row) {
                                             ?>
                                                 <tr>
-                                                    <td><?php echo $row->nombreProducto; ?></td>
-                                                    <td> <?php echo $row->total  ?></td>
-                                                    <td><?php
-                                                        if ($row->estado) {
-                                                            echo "Activo";
-                                                        } else {
-                                                            echo "Desactivado";
-                                                        }
-
-                                                        ?></td>
-                                                    <td><?php echo $row->fechaRegistro; ?></td>
-
-
-
-                                                    <td  class="text-center">
-                                                        <a ><?php  echo form_open_multipart('venta/reportepdf1'); ?>
-                                                        <input type="hidden" name="idventa" value="<?php echo $row->idVenta; ?>">
-                                                       <button    formtarget="_blank" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="detalle de la venta">
+                                                    <td><?= $row->nombreProducto ?></td>
+                                                    <td><?= $row->total ?></td>
+                                                    <td class="text-center"><?= $row->estado ? "Activo" : "Desactivado" ?></td>
+                                                    <td class="text-center"><?= $row->fechaRegistro ?></td>
+                                                    <td class="text-center">
+                                                        <?= form_open_multipart('venta/reportepdf1') ?>
+                                                        <input type="hidden" name="idventa" value="<?= $row->idVenta ?>">
+                                                        <button formtarget="_blank" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Detalle de la venta">
                                                             <i class="fa fa-file-pdf-o"></i>
                                                         </button>
-                                                        <?php echo form_close(); ?>
+                                                        <?= form_close() ?>
                                                     </td>
-
                                                     <td class="text-center">
                                                         <div class="btn-group">
-
-                                                            <button class="btn btn-outline-danger" data-toggle="tooltip" onclick="return confirm_modalFotos(<?php echo $row->idVenta; ?>)" data-placement="top" title="Deshabilitar">
+                                                            <button class="btn btn-outline-danger" data-toggle="tooltip" onclick="return confirm_modalFotos(<?= $row->idVenta ?>)" data-placement="top" title="Deshabilitar">
                                                                 <i class="fa fa-toggle-off"></i>
                                                             </button>
-
                                                         </div>
                                                     </td>
                                                 </tr>

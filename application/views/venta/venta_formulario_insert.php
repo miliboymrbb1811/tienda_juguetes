@@ -50,11 +50,11 @@
 
                             </div>
 
-                            <label class="col-form-label col-md-1 label-align">Marca:</label>
+                            <label class="col-form-label col-md-1 label-align">Tienda:</label>
 
                             <div class="col-md-3">
                                 <input type="text" class="form-control" disabled value="" name="marca" id="marca" placeholder="Sin marca" />
-                                <!-- <input type="hidden" name="marca1" id="marca1" value=""> -->
+                              
 
                             </div>
 
@@ -93,7 +93,6 @@
 
                                 <th class="column-title">Foto </th>
                                 <th class="column-title">Nombre </th>
-                                <th class="column-title">Tienda </th>
                                 <th class="column-title">Precio </th>
                                 <th class="column-title">Stock </th>
                                 <th class="column-title">Cantidad </th>
@@ -300,17 +299,16 @@
             // Para este ejemplo, en realidad no envíe el formulario
             console.log("soy freeedy")
                         event.preventDefault();
-             markup = "<tr name='fila' id='fila" + count + "' class='even pointer'>" +
-                 "<td> <img id='productos' width='100' height='100' src='<?php echo  base_url(); ?>uploads/products_images/" + producto.foto + "'alt=''></td>" +
-                 "<td>" + producto.nombre + "<input class='form-control' name='idProducto[]' hidden type='number' value=" + producto.idProducto + " ></td>" +
-                 "<td>" + producto.marca + "</td>" +
-                 "<td name='precio'>" + producto.precioUnitario + "</td>" +
-                 "<td >" + producto.stock + "<input class='form-control stock' name='stock[]' hidden type='number' value=" + producto.stock + " ></td>" +
-                 "<td><input class='form-control' name='cantidad[]' onchange='cambiarSubtotal()' type='number' value='1' ></td>" +
-                 "<td>" + producto.codigo + "</td>" +
-                 "<td ><input class='form-control' name='subtotal[]' id='subtotal'  type='number' value=" + producto.precioUnitario + " ></td>" +
-                 "<td> <input type='button' class='form-control'  onclick='eliminarFila(" + count + ");' value='Eliminar' /></td>" +
-                 "</tr>";
+             markup = "<tr name='fila' id='fila" + count + "' class='even pointer' style='vertical-align: middle;'>" +
+    "<td> <img id='productos' width='150' height='150' src='<?php echo  base_url(); ?>uploads/products_images/" + producto.foto + "' alt=''></td>" +
+    "<td style='vertical-align: middle;'>" + producto.nombre + "<input class='form-control' name='idProducto[]' hidden type='number' value=" + producto.idProducto + " ></td>" +
+    "<td name='precio' style='vertical-align: middle;'>" + producto.precioUnitario + "</td>" +
+    "<td style='vertical-align: middle;'>" + producto.stock + "<input class='form-control stock' name='stock[]' hidden type='number' value=" + producto.stock + " ></td>" +
+    "<td style='vertical-align: middle;'><input class='form-control' name='cantidad[]' onchange='cambiarSubtotal()' type='number' value='1' ></td>" +
+    "<td style='vertical-align: middle;'>" + producto.codigo + "</td>" +
+    "<td style='vertical-align: middle;'><input class='form-control' name='subtotal[]' id='subtotal' type='text' value='" + producto.precioUnitario + "' readonly></td>" +
+    "<td style='vertical-align: middle;'><input type='button' class='form-control' onclick='eliminarFila(" + count + ");' value='Eliminar' /></td>" +
+"</tr>";
              tableBody = $("#bodyTabla");
              tableBody.append(markup);
              count += 1;

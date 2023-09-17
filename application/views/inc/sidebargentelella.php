@@ -48,14 +48,14 @@
                 <ul class="nav child_menu">
                   <li>
                     <?php echo form_open_multipart('empleado/index'); ?>
-                    <button type="submit" class="col-md-11 btn btn-">
-                      Empleados
+                    <button type="submit" class="col-md-11 btn btn-outline-danger btn-bold">
+                    Empleados
                     </button>
                     <?php echo form_close(); ?>
                   </li>
                   <li>
                     <?php echo form_open_multipart('empleado/deshabilitados');  ?>
-                    <button type="submit" class="col-md-11 btn btn-dark">
+                    <button type="submit" class="col-md-11 btn  btn-outline-danger btn-bold">
                       Empleados Deshabilitados
                     </button>
                     <?php echo form_close(); ?>
@@ -199,6 +199,6 @@
 
       <!-- /menu footer buttons -->
       <div id="identified0" class="sidebar-footer hidden-small">
-        <div class="pull-right">
-          Bootstrap Admin Template by sismrbb.-
+        <div class="pull-center">
+          Template by sismrbb-79958584
         </div>

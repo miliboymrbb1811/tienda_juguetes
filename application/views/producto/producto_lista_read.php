@@ -75,35 +75,35 @@
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody style="text-align: left;">
                                             <?php
                                             foreach ($producto->result() as $row) {
                                             ?>
-                                                <tr>
+                                                <tr >
                                                     <td class="text-center">
                                                         <?php
 
                                                         $foto = $row->foto;
                                                         if (!$foto) {
                                                         ?>
-                                                            <img src="<?php echo  base_url(); ?>uploads/products_images/sinImagen.jpg"  height="50px" width="50px">
+                                                            <img src="<?php echo  base_url(); ?>uploads/products_images/sinImagen.jpg"  height="100px" width="100px">
                                                         <?php
                                                         } else {
                                                         ?>
-                                                            <img src="<?php echo base_url(); ?>uploads/products_images/<?php echo $foto; ?>"  width="50px" height="50px">
+                                                            <img src="<?php echo base_url(); ?>uploads/products_images/<?php echo $foto; ?>"  width="100px" height="100px">
                                                         <?php
                                                         }
                                                         ?>
 
                                                     </td>
-                                                    <td><?php echo $row->nombreProducto; ?></td>
-                                                    <td><?php echo $row->numeroTienda; ?></td>
-                                                    <td><?php echo $row->numeroCategoria; ?></td>
-                                                    <td><?php echo $row->cajas; ?></td>
-                                                    <td><?php echo $row->precio; ?></td>
-                                                    <td><?php echo $row->codigo; ?></td>
+                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->nombreProducto; ?></td>
+                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->numeroTienda; ?></td>
+                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->numeroCategoria; ?></td>
+                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->cajas; ?></td>
+                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->precio; ?></td>
+                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->codigo; ?></td>
                                                     
-                                                    <td>
+                                                    <td style="text-align: center; vertical-align: middle; ">
                                                         <?php
                                                         echo $row->stock;
                                                         ?>

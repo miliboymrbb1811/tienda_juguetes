@@ -54,9 +54,9 @@
                                     <p class="text-muted font-13 m-b-30">
                                         En esta tabla se visualizan a todos los empleados activos
                                     </p>
-                                   <table id="datatable-buttons" class="table table-dark table-striped " style="width:100%">
+                                   <table id="datatable-buttons" class="table table-primary table-striped " style="width:100%">
                                         <thead>
-                                            <tr class="text-center table-dark text-dark">
+                                            <tr class="text-center table-danger text-dark">
                                                 <th>Nombre</th>
                                                 <th>Apellido paterno</th>
                                                 <th>Apellido materno</th>
