@@ -7,19 +7,20 @@ class Venta extends CI_Controller
     {
 
         if ($this->session->userdata('tipo') == 'admin') {
-            $lista = $this->venta_model->listaventa();
-            $data['venta'] = $lista;
+            $data['venta'] = $this->venta_model->listaventa();
 
-            $this->load->view('inc/headergentelella');
-            $this->load->view('inc/sidebargentelella');
-            $this->load->view('inc/topbargentelella');
-            $this->load->view('venta/venta_lista_read', $data);
-            $this->load->view('inc/creditosgentelella');
-            $this->load->view('inc/footergentelella');
+            $views = [
+                'inc/headergentelella',
+                'inc/sidebargentelella',
+                'inc/topbargentelella',
+                'venta/venta_lista_read',
+                'inc/creditosgentelella',
+                'inc/footergentelella'
+            ];
 
-            /*$this->load->view('inc/header');
-        $this->load->view('lista_read',$data);
-        $this->load->view('inc/footer');*/
+            foreach ($views as $view) {
+                $this->load->view($view, $data);
+            }
         } else {
             redirect('usuarios/panel', 'refresh');
         }

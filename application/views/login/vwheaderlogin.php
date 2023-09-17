@@ -5,24 +5,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <html id="identified" lang="en" style="background-color:black ;">
 <style>
   * {
-    margin: 0;
-    padding: 0;
+    margin: 0%;
+    padding: 0%;
+
+ 
   }
+
 
   #identified {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     color: #fff;
     background: linear-gradient(100deg,brown, gray, black,purple);
-    background-size: 400% 400%;
+    background-size: 200% 200%;
     position: relative;
     animation: cambiar 10s ease-in-out infinite;
   }
   
   #identified1 {
-    border-radius: 20px;
+    
+    border-radius: 10px;
     width: 100%;
-    height: 50%;
+    height: 100%;
     color: #fff;
     background: linear-gradient(45deg ,red ,black,red);
     background-size: 400% 400%;
@@ -58,7 +62,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <link href="<?php echo base_url(); ?>gentelella/vendors/animate.css/animate.min.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>gentelella/build/css/custom.min.css" rel="stylesheet">
   <!-- Icono de pestaña -->
-  <link href="<?php echo base_url() ?>img/miniatura.png" rel="icon" type="image/png" />
+  <link href="<?php echo base_url() ?>img/sismrbb.png" rel="icon" type="image/png" />
 
 </head>
 

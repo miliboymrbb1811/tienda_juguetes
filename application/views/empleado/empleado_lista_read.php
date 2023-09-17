@@ -54,17 +54,15 @@
                                     <p class="text-muted font-13 m-b-30">
                                         En esta tabla se visualizan a todos los empleados activos
                                     </p>
-
-                                    <table id="datatable-buttons" class="table table-dark table-striped " style="width:100%">
+                                   <table id="datatable-buttons" class="table table-dark table-striped " style="width:100%">
                                         <thead>
                                             <tr class="text-center table-dark text-dark">
                                                 <th>Nombre</th>
-                                                <th>Primer Apellido</th>
-                                                <th>Segundo Apellido</th>
-                                                <th>Nro. Celular</th>
-                                                <th>Nro. Carnet</th>
+                                                <th>Apellido paterno</th>
+                                                <th>Apellido materno</th>
+                                                <th>N°. Celular</th>
+                                                <th>N°. Carnet</th>
                                                 <th>Fecha de ingreso</th>
-                                                <th>Modificado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -76,10 +74,9 @@
                                                     <td><?php echo $row->nombre; ?></td>
                                                     <td><?php echo $row->primerApellido; ?></td>
                                                     <td><?php echo $row->segundoApellido; ?></td>
-                                                    <td><?php echo $row->numeroCelular; ?></td>
-                                                    <td><?php echo $row->numeroCI; ?></td>
-                                                    <td><?php echo formatearFechaMasHora($row->fechaRegistro); ?></td>
-                                                    <td><?php echo formatearFechaMasHora($row->fechaActualizacion); ?></td>
+                                                    <td align="center"><?php echo $row->numeroCelular; ?></td>
+                                                    <td ><?php echo $row->numeroCI; ?></td>
+                                                    <td align="center"><?php echo formatearFechaMasHora($row->fechaRegistro); ?></td>
 
                                                     <td class="text-center">
                                                         <div class="btn-group">

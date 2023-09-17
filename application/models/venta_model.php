@@ -7,14 +7,13 @@ class Venta_model extends CI_Model
 
    public function listaventa() //select
    {
-      $this->db->select('venta.idVenta, persona.nombre,persona.primerApellido,total,venta.fechaRegistro, venta.estado'); //select *
-      $this->db->FROM('venta'); //tabla productos
-      $this->db->JOIN('cliente', 'venta.idCliente = cliente.idCliente');
-      $this->db->JOIN('persona', 'cliente.idPersona = persona.idPersona');
-      $this->db->order_by('venta.fechaRegistro','desc');
-
-      //si se gusta añadir una especie de AND de SQL se puede repetir nuevamente la línea previa a este comentario. ($this->db->where('estado','1');)
-      return $this->db->get(); //devolucion del resultado de la consulta
+      $this->db->select('v.idVenta, p.nombreProducto, v.total, v.fechaRegistro, v.estado')
+      ->from('venta v')
+      ->join('detalle d', 'v.idVenta = d.idVenta')
+      ->join('producto p', 'd.idProducto = p.idProducto')
+      ->order_by('v.fechaRegistro', 'desc');
+  
+      return $this->db->get();
    }
 
 
@@ -64,29 +63,6 @@ class Venta_model extends CI_Model
       return $response2;
    }
 
-
-
-   // function getClients($postData,$idProducto){
-
-   //     $response2 = array();
-   //     if(isset($postData['search']) ){
-   //       // Select record
-   //       $this->db->select('*');
-   //       $this->db->FROM('bddjuguetes.marca'); //tabla productos
-   //       $this->db->JOIN('bddjuguetes.producto ', 'marca.idMarca = producto.idMarca');
-   //       $this->db->where("persona.marca like '%".$postData['search']."%' ");
-   //       $this->db->where('producto.idProducto',$idProducto); //condición where estado = 1
-
-   //       $records = $this->db->get()->result();
-
-   //       foreach($records as $row ){
-   //          $response2[] = array("value"=>$row->numeroTienda,"primerApellido"=>$row->primerApellido
-   //          ,"segundoApellido"=>$row->segundoApellido,"carnet"=>$row->numeroCI);
-   //         }
-
-   //     }
-   //     return $response2;
-   //  }
 
    function getMarcas($postData)
    {

@@ -60,7 +60,7 @@
                                     <table id="datatable-buttons" class="table table-dark table-striped" style="width:100%">
                                         <thead>
                                             <tr class="text-center table-dark text-dark">
-                                                <th>Cliente</th>
+                                                <th>Producto</th>
                                                 <th>Total</th>
                                                 <th>Estado</th>
                                                 <th>fechaRegistro</th>
@@ -73,7 +73,7 @@
                                             foreach ($venta->result() as $row) {
                                             ?>
                                                 <tr>
-                                                    <td><?php echo $row->nombre.' '.$row->primerApellido; ?></td>
+                                                    <td><?php echo $row->nombreProducto; ?></td>
                                                     <td> <?php echo $row->total  ?></td>
                                                     <td><?php
                                                         if ($row->estado) {

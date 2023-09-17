@@ -1,15 +1,16 @@
-<div class="login_wrapper ">
-  <div div class="animate form login_form  ">
-    <section class="login_content  ">
+<div class="login_wrapper" >
+  <div class="animate form login_form ">
+    <section class="login_content" id="superior">
 
       <?php
       echo form_open_multipart('Usuarios/validar', array('id' => 'form1', 'class' => 'from-control'));
       ?>
-      <div id="aw" class="container md-3">
-        <div id="identified1" class="card-body ">
+      <div id="aw" class="container md-2">
+        <div id="identified1" class="card-body">
           <h1>Iniciar Sesión</h1>
           <div class="content-center">
-            <img class="img-fluid rounded w-80" src="<?php echo base_url() ?>img/sismrbb.png">
+           <img class="img-fluid rounded" src="<?php echo base_url() ?>img/logo.png">
+
           </div>
           <?php
           switch ($msg) {
@@ -23,7 +24,7 @@
               $mensaje = "Acceso no válido, inicie cesión ";
               break;
             default:
-              $mensaje = " Bienvenido ";
+              $mensaje = "  ";
               break;
           }
           ?>
@@ -55,8 +56,7 @@
           <div class="separator">
             <div class="clearfix"></div>
             <div>
-              <h1><i class="fa fa-globe"></i> Sistema de gestión de ventas</h1>
-              <p>©2022 todos los derechas reservados. Gentelella By SISmrbb.</p>
+              <p>©2023 todos los derechos reservados.  SISmrbb by Milivoy-79958584.</p>
             </div>
           </div>
           <?php

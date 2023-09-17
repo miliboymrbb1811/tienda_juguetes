@@ -1,6 +1,6 @@
-<div class="main_container">
+<div class="main_container  ">
         <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
+          <div class=" scroll-view">
       <div class="navbar nav_title">
         <a href="/juguetes" class="site_title"><i class="fa fa-paper-plane"></i> <span>IMPORTADORA </span></a>
         
@@ -42,13 +42,13 @@
               <li>
                 <a>
 
-                  <i class="fa fa-male"></i> Empleados
+                  <i class="fa fa-male"></i> Empleado
                   <span class="fa fa-chevron-down"></span>
                 </a>
                 <ul class="nav child_menu">
                   <li>
                     <?php echo form_open_multipart('empleado/index'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                    <button type="submit" class="col-md-11 btn btn-">
                       Empleados
                     </button>
                     <?php echo form_close(); ?>
@@ -90,52 +90,27 @@
                   <li>
                     <?php echo form_open_multipart('producto/index'); ?>
                     <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
-                      producto
+                      Producto
                     </button>
                     <?php echo form_close(); ?>
                   </li>
                   <li>
                     <?php echo form_open_multipart('categoria/index'); ?>
                     <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
-                      Categorías
+                      Cantidades
                     </button>
                     <?php echo form_close(); ?>
                   </li>
                   <li>
                     <?php echo form_open_multipart('marca/index'); ?>
                     <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
-                      marca
+                      N° de tienda
                     </button>
                     <?php echo form_close(); ?>
                   </li>
                 </ul>
               </li>
               <li>
-                <a>
-                  <i class="fa fa-users"></i>Clientes
-                  <span class="fa fa-chevron-down"></span>
-                </a>
-                <ul class="nav child_menu">
-                  <li>
-                    <?php echo form_open_multipart('cliente/index'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
-                      <!----------icono del boton----------->
-                      <!--<i class="fa fa-group"></i> <br>-->
-                      Clientes
-
-                    </button>
-                    <?php echo form_close(); ?>
-                  </li>
-                  <li>
-                    <?php echo form_open_multipart('cliente/deshabilitados'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark">
-                      <!--<i class="fa fa-eye"></i><br>-->
-                      Clientes Deshabilitados
-
-                    </button>
-                    <?php echo form_close(); ?>
-                  </li>
-                </ul>
               </li>
               <li>
                 <a>
@@ -172,33 +147,6 @@
             } else if ($this->session->userdata('tipo') == 'vendedor') { ?>
               <li>
                 <a>
-                  <i class="fa fa-users"></i>Clientes
-                  <span class="fa fa-chevron-down"></span>
-                </a>
-                <ul class="nav child_menu">
-                  <li>
-                    <?php echo form_open_multipart('cliente/index2'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
-                      <!----------icono del boton----------->
-                      <!--<i class="fa fa-group"></i> <br>-->
-                      Clientes
-
-                    </button>
-                    <?php echo form_close(); ?>
-                  </li>
-                  <li>
-                    <?php echo form_open_multipart('cliente/deshabilitados'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark">
-                      <!--<i class="fa fa-eye"></i><br>-->
-                      Clientes Deshabilitados
-
-                    </button>
-                    <?php echo form_close(); ?>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>
                   <i class="fa fa-cubes"></i>producto
                   <span class="fa fa-chevron-down"></span>
                 </a>
@@ -230,7 +178,7 @@
                 <ul class="nav child_menu">
                   <li>
                     <?php echo form_open_multipart('venta/index2'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                    <button type="submit" class="col-md-11 " style="background-color: transparent; border: none;">
                       Venta
                     </button>
                     <?php echo form_close(); ?>
