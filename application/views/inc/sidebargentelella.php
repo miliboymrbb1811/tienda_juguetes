@@ -38,32 +38,6 @@
             //muestra los paneles del admin
             if ($this->session->userdata('tipo') == 'admin') {
             ?>
-
-              <!-- <li>
-                <a>
-
-                  <i class="fa fa-male"></i> Empleado
-                  <span class="fa fa-chevron-down"></span>
-                </a>
-                <ul class="nav child_menu">
-                  <li>
-                    <?php echo form_open_multipart('empleado/index'); ?>
-                    <button type="submit" class="col-md-11 btn btn-outline-danger btn-bold">
-                    Empleados
-                    </button>
-                    <?php echo form_close(); ?>
-                  </li>
-                  <li>
-                    <?php echo form_open_multipart('empleado/deshabilitados');  ?>
-                    <button type="submit" class="col-md-11 btn  btn-outline-danger btn-bold">
-                      Empleados Deshabilitados
-                    </button>
-                    <?php echo form_close(); ?>
-                  </li>
-                
-                </ul>
-              </li> -->
-
               <li>
                 <a>
 
@@ -112,21 +86,7 @@
               </li>
               <li>
               </li>
-              <li>
-                <a>
-                  <i class="fa fa-folder-open"></i>reportes
-                  <span class="fa fa-chevron-down"></span>
-                </a>
-                <ul class="nav child_menu">
-                  <li>
-                    <?php echo form_open_multipart('reporte/index'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark">
-                      Reportes
-                    </button>
-                    <?php echo form_close(); ?>
-                  </li>
-                </ul>
-              </li>
+  
               <li>
                 <a>
                   <i class="fa fa-shopping-cart"></i>Ventas x
@@ -186,10 +146,6 @@
                 </ul>
 
               </li>
-
-
-
-
 
             <?php } ?>
           </ul>
