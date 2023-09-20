@@ -149,7 +149,6 @@ class Empleado extends CI_Controller {
         $data['numeroCI']=$_POST['numeroci'];
         $data['fechaActualizacion']=date('Y-m-d H:i:s');
         $this->empleado_model->modificarPersona($idempleado,$data);
-        $this->empleado_model->modificarEmpleado($idempleado,$data);
 
         redirect('empleado/index','refresh');
        

@@ -75,7 +75,7 @@
                                                         }
                                                         ?>
                                                     </td>
-                                                    <td><?php echo $row->nombre; ?> <?php echo $row->primerApellido;  ?> <?php echo $row->segundoApellido; ?></td>
+                                                    <td><?php echo $row->nombre; ?> <?php echo $row->primerApellido;  ?> </td>
                                                     <td><?php echo $row->tipo; ?></td>
                                                     <td><?php echo $row->login; ?></td>
 

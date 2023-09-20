@@ -39,7 +39,7 @@
             if ($this->session->userdata('tipo') == 'admin') {
             ?>
 
-              <li>
+              <!-- <li>
                 <a>
 
                   <i class="fa fa-male"></i> Empleado
@@ -62,7 +62,7 @@
                   </li>
                 
                 </ul>
-              </li>
+              </li> -->
 
               <li>
                 <a>

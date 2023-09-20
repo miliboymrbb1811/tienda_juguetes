@@ -329,9 +329,6 @@ class Venta extends CI_Controller
             $this->pdf->SetFont('Arial', 'B', 10);
             $this->pdf->Ln(0);
 
-        
-
-
             $this->pdf->Ln(0);
             $actividad = $this->reporte_model->listaventa($_POST['idventa']);
             $actividad = $actividad->result();
