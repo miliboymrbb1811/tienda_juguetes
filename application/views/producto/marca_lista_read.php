@@ -43,10 +43,9 @@
                                         Estimado administrador, en esta seccion usted vera las marcas, usted puede modificarlo haciendo click en el botón "Modificar" en la columna de "Acciones":
                                     </p>
 
-
-                                    <table id="datatable-buttons" class="table table-dark table-striped" style="width:100%">
+                                    <table id="datatable-buttons" class="table table-primary table-striped " style="width:100%">
                                         <thead>
-                                            <tr class="text-center table-dark text-dark">
+                                            <tr class="text-center table-danger text-dark">
                                                 <th>Marca</th>
                                                 <th>Creado</th>
                                                 <th>Modificado</th>

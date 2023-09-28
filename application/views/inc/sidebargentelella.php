@@ -48,7 +48,7 @@
                 <ul class="nav child_menu">
                   <li>
                     <?php echo form_open_multipart('usuarios/inicio'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                    <button type="submit"class="col-md-11 btn btn-dark" style=" border: 10px;">
                       usuarios
                     </button>
                     <?php echo form_close(); ?>
@@ -63,21 +63,21 @@
                 <ul class="nav child_menu">
                   <li>
                     <?php echo form_open_multipart('producto/index'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                    <button type="submit" class="col-md-11 btn btn-dark" style=" border: 2px;">
                       Producto
                     </button>
                     <?php echo form_close(); ?>
                   </li>
                   <li>
                     <?php echo form_open_multipart('categoria/index'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                    <button type="submit" class="col-md-11 btn btn-dark" style=" border: 2px;">
                       Cantidades
                     </button>
                     <?php echo form_close(); ?>
                   </li>
                   <li>
                     <?php echo form_open_multipart('marca/index'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                    <button type="submit" class="col-md-11 btn btn-dark" style=" border: 2px;">
                       N° de tienda
                     </button>
                     <?php echo form_close(); ?>
@@ -113,14 +113,14 @@
                 <ul class="nav child_menu">
                   <li>
                     <?php echo form_open_multipart('producto/index2'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                    <button type="submit" class="col-md-11 btn btn-dark" style=" border: 2px;">
                       producto
                     </button>
                     <?php echo form_close(); ?>
                   </li>
                   <li>
                     <?php echo form_open_multipart('producto/deshabilitados'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark">
+                    <button type="submit" class="col-md-11 btn btn-dark" style=" border: 2px;">
                       productos deshabilitados
                     </button>
                     <?php echo form_close(); ?>
@@ -138,7 +138,7 @@
                 <ul class="nav child_menu">
                   <li>
                     <?php echo form_open_multipart('venta/index2'); ?>
-                    <button type="submit" class="col-md-11 " style="background-color: transparent; border: none;">
+                    <button type="submit" class="col-md-11 btn btn-dark" style=" border: 2px;">
                       Venta
                     </button>
                     <?php echo form_close(); ?>

@@ -191,6 +191,41 @@ class Venta_model extends CI_Model
       return $this->db->get(); //devolucion del resultado de la consulta
    
 	}
+
+   public function detalle($idventa) //select
+   {
+
+       $this->db->select('*'); //select *
+       $this->db->FROM('detalle'); //tabla producto //condición where estado = 1
+       $this->db->where('venta.idVenta', $idventa);
+       $this->db->JOIN('venta', 'venta.idVenta=detalle.idVenta');
+       $this->db->JOIN('producto ', 'producto.idProducto=detalle.idProducto');
+       $this->db->JOIN('categoria', 'categoria.idCategoria=producto.idCategoria');
+       $this->db->JOIN('marca', 'marca.idMarca=producto.idMarca');
+       $this->db->JOIN('cliente', 'cliente.idCliente=venta.idCliente');
+       $this->db->JOIN('persona', 'persona.idPersona=cliente.idPersona');
+
+
+       //inner join a una segunda tabla
+       //si se gusta añadir una especie de AND de SQL se puede repetir nuevamente la línea previa a este comentario. ($this->db->where('estado','1');)
+       return $this->db->get(); //devolucion del resultado de la consulta
+   }
+   public function listaventa1() //select
+   {
+       $this->db->select('*'); //select *
+       $this->db->FROM('venta'); //tabla producto
+       $this->db->where('venta.estado', '1'); //condición where estado = 1
+       $this->db->ORDER_BY('idVenta', 'desc');
+       $this->db->JOIN('cliente', 'cliente.idCliente=venta.idCliente');
+       $this->db->JOIN('persona', 'persona.idPersona=cliente.idPersona');
+       $this->db->JOIN('Usuario', 'Usuario.idUsuario=venta.idUsuario');
+       $this->db->JOIN('empleado', 'Usuario.idEmpleado=empleado.idEmpleado');
+      
+
+       //inner join a una segunda tabla
+       //si se gusta añadir una especie de AND de SQL se puede repetir nuevamente la línea previa a este comentario. ($this->db->where('estado','1');)
+       return $this->db->get(); //devolucion del resultado de la consulta
+   }
 }
 
 

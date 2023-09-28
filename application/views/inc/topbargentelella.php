@@ -15,13 +15,7 @@
                 <font color="red"  >  <?php echo $this->session->userdata('login') ?> </font>
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <?php
-                    echo form_open_multipart('usuarios/perfil');
-                    ?>
-                    <button  class="btn btn-danger col-md-11 " type="submit"> <i class="fa fa-user pull-right"></i>perfil</button>
-                    <?php
-                    echo form_close();
-                    ?>
+               
                     <?php
                     echo form_open_multipart('usuarios/logout');
                     ?>

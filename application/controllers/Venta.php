@@ -190,7 +190,7 @@ class Venta extends CI_Controller
         if ($this->session->userdata('tipo') == 'admin' || 'vendedor') {
 
 
-            $req = $this->reporte_model->detalle($_POST['idventa']);
+            $req = $this->venta_model->detalle($_POST['idventa']);
             $req = $req->result(); //convertir a array bidemencional
 
             $this->pdf = new Pdf();
@@ -215,7 +215,7 @@ class Venta extends CI_Controller
 
 
             $this->pdf->Ln(0);
-            $actividad = $this->reporte_model->listaventa($_POST['idventa']);
+            $actividad = $this->venta_model->listaventa1($_POST['idventa']);
             $actividad = $actividad->result();
             foreach ($actividad as $rows) {
                 $usuario = $rows->login;
@@ -275,7 +275,7 @@ class Venta extends CI_Controller
             }
 
             $this->pdf->Ln(2);
-            $actividad = $this->reporte_model->detalle($_POST['idventa']);
+            $actividad = $this->venta_model->detalle($_POST['idventa']);
             $actividad = $actividad->result();
             foreach ($actividad as $rows) {
                 $total1 = $row->total;
@@ -308,7 +308,7 @@ class Venta extends CI_Controller
         if ($this->session->userdata('tipo') == 'admin' || 'vendedor') {
 
 
-            $req = $this->reporte_model->detalle($_POST['idventa']);
+            $req = $this->venta_model->detalle($_POST['idventa']);
             $req = $req->result(); //convertir a array bidemencional
 
             $this->pdf = new Pdf();
@@ -330,7 +330,7 @@ class Venta extends CI_Controller
             $this->pdf->Ln(0);
 
             $this->pdf->Ln(0);
-            $actividad = $this->reporte_model->listaventa($_POST['idventa']);
+            $actividad = $this->venta_model->listaventa1($_POST['idventa']);
             $actividad = $actividad->result();
             foreach ($actividad as $rows) {
                 $usuario = $rows->login;
@@ -361,7 +361,7 @@ class Venta extends CI_Controller
             $this->pdf->Cell(325, 8, 'Nro. de registro'.' :'.utf8_decode($ventaId) , 0, 1, 'C', 1);
             $this->pdf->SetFillColor(0, 0, 0);
             $this->pdf->SetTextColor(255, 255, 255);
-            $this->pdf->Cell(180, 8, 'DETALLE'.''.utf8_decode($ventaId) , 0, 1, 'C', 1);
+            $this->pdf->Cell(180, 8, 'DETALLE', 0, 1, 'C', 1);
            
             // Obtén el ID de la venta desde el formulari
             $this->pdf->SetTextColor(0, 0, 0);
@@ -390,7 +390,7 @@ class Venta extends CI_Controller
             }
 
             $this->pdf->Ln(2);
-            $actividad = $this->reporte_model->detalle($_POST['idventa']);
+            $actividad = $this->venta_model->detalle($_POST['idventa']);
             $actividad = $actividad->result();
             foreach ($actividad as $rows) {
                 $total1 = $row->total;

@@ -26,8 +26,6 @@
                             <!-- Inicio Div row 2 -->
                             <div class="col-sm-12">
 
-                                <!-- Inicio Div col-sm-12 2 -->
-                                <div class="card-box table-responsive">
                                     <!-- Inicio Div card-box table-responsive -->
                                     <br><br>
                                     <!-- <p class="text-muted font-13 m-b-30">
@@ -43,19 +41,18 @@
 
                                     <p>Estimado vendedor en esta sección puede ver los productos que estan disponibles, en la parte derecha puede ver el estado del stock</p>
                             
-                                    <table id="datatable-buttons" class="table table-dark table-striped" style="width:100%">
+                                    <table id="datatable-buttons" class="table table-primary table-striped " style="width:100%">
                                         <thead>
-
-                                            <tr class="text-center table-dark text-dark ">
-                                                <th>Foto</th>
+                                            <tr class="text-center table-danger text-dark">
+                                            <th>Foto</th>
                                                 <th>Nombre</th>
-                                                <th>Marca</th>
-                                                <th>Categoria</th>
+                                                <th>unidades por caja </th>
+                                                <th>cajas</th>
                                                 <th>Precio</th>
                                                 <th>codigo</th>
-                                                <th>Stock</th>
+                                                <th>inventario</th>
                                                 <th>descripcion</th>
-                                                <th>Estado </th>
+                                                <th>estado</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -69,21 +66,21 @@
                                                         $foto = $row->foto;
                                                         if (!$foto) {
                                                         ?>
-                                                            <img src="<?php echo  base_url(); ?>uploads/products_images/c" width="50px">
+                                                            <img src="<?php echo  base_url(); ?>uploads/products_images/c" width="150" height="150">
                                                         <?php
                                                         } else {
                                                         ?>
-                                                            <img src="<?php echo base_url(); ?>uploads/products_images/<?php echo $foto; ?>" height="50px">
+                                                            <img src="<?php echo base_url(); ?>uploads/products_images/<?php echo $foto; ?>" width="150" height="150">
                                                         <?php
                                                         }
                                                         ?>
                                                     </td>
-                                                    <td><?php echo $row->nombreProducto; ?></td>
-                                                    <td><?php echo $row->numeroTienda; ?></td>
-                                                    <td><?php echo $row->numeroCategoria; ?></td>
-                                                    <td><?php echo $row->precio; ?></td>
-                                                    <td><?php echo $row->codigo; ?></td>
-                                                    <td><?php
+                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->nombreProducto; ?></td>
+                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->numeroCategoria; ?></td>
+                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->cajas; ?></td>
+                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->precio; ?></td>
+                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->codigo; ?></td>
+                                                    <td  style="text-align: center; vertical-align: middle; "><?php
 
                                                         ?>
                                                         <?php
@@ -94,10 +91,10 @@
                                                         }
                                                         ?>
                                                     </td>
-                                                    <th><?php echo $row->descripcion; ?></th>
+                                                    <th  style="text-align: center; vertical-align: middle; "><?php echo $row->descripcion; ?></th>
 
 
-                                                    <th>
+                                                    <th  style="text-align: center; vertical-align: middle; ">
                                                         <?php
                                                         if ($row->stock <= 100) {
                                                             echo "<font color=\"red\"><span class=spinner-grow></span>bajo</font>";
@@ -128,8 +125,6 @@
                                             ?>
                                         </div>
                                     </div>
-
-                                </div><!-- Inicio Div card-box table-responsive -->
                             </div><!-- Fin Div col-sm-12 2 -->
                         </div><!-- Fin Div row 2 -->
                     </div><!-- Fin Div x_content -->

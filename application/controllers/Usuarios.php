@@ -276,10 +276,10 @@ class usuarios extends CI_Controller
 
                         if ($this->session->userdata('tipo') == "admin") {
                                 //cargo admin
-                                redirect('reporte/index', 'refresh');
+                                redirect('producto/index', 'refresh');
                         } else if ($this->session->userdata('tipo') == "vendedor") {
                                 //cargo vendedor 
-                                redirect('venta/index2', 'refresh');
+                                redirect('producto/index2', 'refresh');
                         }
                 } else {
                         //USUARIO NO LOGUEADO

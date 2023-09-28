@@ -26,7 +26,7 @@
                             <!-- Inicio Div row 2 -->
                             <div class="col-sm-12">
                                 <!-- Inicio Div col-sm-12 2 -->
-                                <div class="card-box table-responsive">
+                                
                                     <!-- Inicio Div card-box table-responsive -->
                                     <div class="btn-group" style="float: right ">
                                         <?php
@@ -60,9 +60,9 @@
                                         Estos datos no serán visibles en el producto final.
                                     </p>
 
-                                    <table id="datatable-buttons" class="table table-dark table-striped" style="width:100%">
+                                    <table id="datatable-buttons" class="table table-primary table-striped " style="width:100%">
                                         <thead>
-                                            <tr class="text-center table-dark text-dark ">
+                                            <tr class="text-center table-danger text-dark">
                                                 <th>Foto</th>
                                                 <th>Nombre</th>
                                                 <th>N° de tienda</th>
@@ -148,7 +148,7 @@
                                         </tbody>
                                     </table>
 
-                                </div><!-- Inicio Div card-box table-responsive -->
+                              
                             </div><!-- Fin Div col-sm-12 2 -->
                         </div><!-- Fin Div row 2 -->
                     </div><!-- Fin Div x_content -->

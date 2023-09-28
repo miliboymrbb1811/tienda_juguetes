@@ -60,7 +60,7 @@
                                     <table id="datatable-buttons" class="table table-dark table-striped" style="width:100%">
                                         <thead>
                                             <tr class="text-center table-dark text-dark">
-                                                <th>Cliente</th>
+                                
                                                 <th>Total</th>
                                                 <th>Estado</th>
                                                 <th>fechaRegistro</th>
@@ -73,9 +73,9 @@
                                             foreach ($venta->result() as $row) {
                                             ?>
                                                 <tr>
-                                                    <td><?php echo $row->nombre; ?></td>
-                                                    <td> <?php echo $row->total  ?></td>
-                                                    <td><?php
+        
+                                                    <td class="text-center"> <?php echo $row->total  ?></td>
+                                                    <td class="text-center"><?php
                                                         if ($row->estado) {
                                                             echo "Activo";
                                                         } else {
@@ -83,14 +83,14 @@
                                                         }
 
                                                         ?></td>
-                                                    <td><?php echo $row->fechaRegistro; ?></td>
+                                                    <td class="text-center"><?php echo $row->fechaRegistro; ?></td>
 
 
 
                                                     <td  class="text-center">
-                                                        <?php echo form_open_multipart('venta/reportepdf'); ?>
-                                                        <input type="hidden" name="idventa" value="<?php echo $row->idVenta; ?>">
-                                                        <button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="detalle de la venta">
+                                                    <?= form_open_multipart('venta/reportepdf1') ?>
+                                                        <input type="hidden" name="idventa" value="<?= $row->idVenta ?>">
+                                                        <button formtarget="_blank" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Detalle de la venta">
                                                             <i class="fa fa-file-pdf-o"></i>
                                                         </button>
                                                         <?php echo form_close(); ?>

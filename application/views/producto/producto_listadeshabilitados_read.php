@@ -46,7 +46,6 @@
                                             <tr class="text-center table-dark text-dark">
                                                 <th>Foto</th>
                                                 <th>Marca</th>
-
                                                 <th>Categoria</th>
                                                 <th>Precio</th>
                                                 <th>codigo</th>

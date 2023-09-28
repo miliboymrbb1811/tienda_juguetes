@@ -35,10 +35,9 @@
                                     <p class="text-muted font-13 m-b-30">
                                         Estimado administrador, las categorías que usted está viendo a continuación se visualizarán al momento de realizar una compra o venta, si desea realizar un reporte, haga click en una de las siguientes opciones que está debajo:
                                     </p>
-
-            <table id="datatable-buttons" class="table table-dark table-striped" style="width:100%">
-                <thead>
-                    <tr class="text-center table-dark text-dark">
+                                    <table id="datatable-buttons" class="table table-primary table-striped " style="width:100%">
+                                        <thead>
+                                            <tr class="text-center table-danger text-dark">
                         <th>Categoria</th>
                         <th>Creado</th>
                         <th>Modificado</th>

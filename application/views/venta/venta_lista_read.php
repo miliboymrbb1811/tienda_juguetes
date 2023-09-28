@@ -60,7 +60,7 @@
                                     <table id="datatable-buttons" class="table table-dark table-striped" style="width:100%">
                                         <thead>
                                             <tr class="text-center table-dark text-dark">
-                                                <th>Producto</th>
+
                                                 <th>Total</th>
                                                 <th>Estado</th>
                                                 <th>fecha Venta</th>
@@ -73,7 +73,7 @@
                                             foreach ($venta->result() as $row) {
                                             ?>
                                                 <tr>
-                                                    <td><?= $row->nombreProducto ?></td>
+                                                   
                                                     <td><?= $row->total ?></td>
                                                     <td class="text-center"><?= $row->estado ? "Activo" : "Desactivado" ?></td>
                                                     <td class="text-center"><?= $row->fechaRegistro ?></td>
