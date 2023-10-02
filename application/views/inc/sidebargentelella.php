@@ -177,11 +177,16 @@
             <?php } ?>
           </ul>
         </div>
+       
       </div>
       <!-- /sidebar menu -->
 
       <!-- /menu footer buttons -->
       <div id="identified0" class="sidebar-footer hidden-small">
         <div class="pull-center">
-          Template by sismrbb-79958584
+
+        Template by sismrbb-79958584
+          
+          
+          
         </div>

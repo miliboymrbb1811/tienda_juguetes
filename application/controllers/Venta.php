@@ -194,7 +194,7 @@ class Venta extends CI_Controller
             $req = $req->result(); //convertir a array bidemencional
 
             $this->pdf = new Pdf();
-            $this->pdf->addPage('P', 'letter');
+            $this->pdf->addPage('P','letter');
             $this->pdf->AliasNbPages();
             $this->pdf->SetTitle("Detalle venta"); //título en el encabezado
             $this->pdf->Ln(0);
@@ -207,7 +207,7 @@ class Venta extends CI_Controller
             $this->pdf->Cell(0, 5, 'COMPROBANTE', 0, 1, 'C', 1);
             $this->pdf->Cell(0, 5, 'DETALLE DE VENTA', 0, 1, 'C', 1);
             $this->pdf->Ln();
-            $this->pdf->Image("img/sismrbb1.png", 165, 10, 40, 37, 'PNG');
+            $this->pdf->Image("img/miniatura.png", 165, 10, 35, 30, 'PNG');
             $this->pdf->SetFont('Arial', 'B', 10);
             $this->pdf->Ln(0);
 
@@ -343,7 +343,7 @@ class Venta extends CI_Controller
             $this->pdf->Cell(0, 5, 'COMPROBANTE', 0, 1, 'C', 1);
             $this->pdf->Cell(0, 5, 'DETALLE DE VENTA', 0, 1, 'C', 1);
             $this->pdf->Ln();
-            $this->pdf->Image("img/miniatura.png", 165, 10, 35, 30, 'PNG');
+            $this->pdf->Image("img/logosis2.png", 165, 10, 40, 38, 'PNG');
             $this->pdf->SetFont('Arial', 'B', 10);
             $this->pdf->Ln(0);
 

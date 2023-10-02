@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `bddjuguetes` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `bddjuguetes`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: bddjuguetes
@@ -23,13 +25,13 @@ DROP TABLE IF EXISTS `categoria`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `categoria` (
-  `idCategoria` tinyint(4) NOT NULL,
-  `numeroCategoria` tinyint(4) NOT NULL,
+  `idCategoria` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `numeroCategoria` int(10) unsigned NOT NULL,
   `estado` tinyint(4) NOT NULL DEFAULT '1',
   `fechaRegistro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fechaActualizacion` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`idCategoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +40,7 @@ CREATE TABLE `categoria` (
 
 LOCK TABLES `categoria` WRITE;
 /*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
-INSERT INTO `categoria` VALUES (0,120,1,'2023-09-14 21:02:07',NULL),(1,100,1,'2023-09-14 19:17:18','2023-09-14 20:43:05');
+INSERT INTO `categoria` VALUES (1,150,1,'2023-10-01 19:22:34',NULL),(2,100,1,'2023-10-01 19:22:38',NULL),(3,120,1,'2023-10-01 19:22:42',NULL),(4,200,1,'2023-10-01 21:25:16',NULL),(5,60,1,'2023-10-01 21:25:24',NULL);
 /*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,7 +58,7 @@ CREATE TABLE `cliente` (
   PRIMARY KEY (`idCliente`),
   KEY `fk_cliente_persona1_idx` (`idPersona`),
   CONSTRAINT `fk_cliente_persona1` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +67,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (3,1,3);
+INSERT INTO `cliente` VALUES (3,1,3),(4,1,5),(5,1,6),(6,1,7),(7,1,8),(8,1,9),(9,1,10),(10,1,11);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +96,7 @@ CREATE TABLE `detalle` (
 
 LOCK TABLES `detalle` WRITE;
 /*!40000 ALTER TABLE `detalle` DISABLE KEYS */;
-INSERT INTO `detalle` VALUES (1,1,1,19.99),(2,1,1,19.99),(3,2,60,3120.00),(4,1,7,140.00);
+INSERT INTO `detalle` VALUES (62,8,100,5000.00),(63,8,200,10000.00),(63,9,225,2700.00),(64,8,300,12000.00),(64,9,75,900.00),(82,8,400,14000.00),(83,10,100,2500.00);
 /*!40000 ALTER TABLE `detalle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,7 +124,7 @@ CREATE TABLE `empleado` (
 
 LOCK TABLES `empleado` WRITE;
 /*!40000 ALTER TABLE `empleado` DISABLE KEYS */;
-INSERT INTO `empleado` VALUES (1,1,1,2),(2,2,2,2),(3,4,1,2);
+INSERT INTO `empleado` VALUES (1,1,1,1),(2,2,2,2),(3,4,1,2);
 /*!40000 ALTER TABLE `empleado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,13 +136,13 @@ DROP TABLE IF EXISTS `marca`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `marca` (
-  `idMarca` tinyint(4) NOT NULL,
+  `idMarca` tinyint(4) NOT NULL AUTO_INCREMENT,
   `numeroTienda` varchar(10) NOT NULL,
   `estado` tinyint(4) NOT NULL DEFAULT '1',
   `fechaRegistro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fechaActualizacion` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`idMarca`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +151,7 @@ CREATE TABLE `marca` (
 
 LOCK TABLES `marca` WRITE;
 /*!40000 ALTER TABLE `marca` DISABLE KEYS */;
-INSERT INTO `marca` VALUES (1,'C1-52',1,'2023-09-14 19:20:06','2023-09-14 20:12:55'),(2,'C2-999',1,'2023-09-14 19:20:06','2023-09-14 20:13:05'),(3,'ZX-920',1,'2023-09-14 19:20:06','2023-09-14 20:13:16');
+INSERT INTO `marca` VALUES (1,'A-25',1,'2023-10-01 19:22:59',NULL),(2,'A-26',1,'2023-10-01 19:23:04',NULL);
 /*!40000 ALTER TABLE `marca` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -171,7 +173,7 @@ CREATE TABLE `persona` (
   `fechaRegistro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fechaActualizacion` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`idPersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,7 +182,7 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES (1,'Juan','Perez',NULL,NULL,'1234567',1,'2023-09-14 19:18:29',NULL),(2,'Maria','Gonzalez',NULL,NULL,'9876543',1,'2023-09-14 19:18:29',NULL),(3,'Pedro','Lopez',NULL,NULL,'4567890',1,'2023-09-14 19:18:29',NULL),(4,'MILIVOY','BRAVO','BRAVO','79958584','6965665',1,'2023-09-14 19:55:56','2023-09-14 20:03:16');
+INSERT INTO `persona` VALUES (1,'PEPITO1','1','','','1234567',1,'2023-09-14 19:18:29','2023-09-20 14:26:15'),(2,'VENDEDOR ','2','','','9876543',1,'2023-09-14 19:18:29','2023-09-20 14:02:23'),(3,'Pedro','Lopez',NULL,NULL,'4567890',1,'2023-09-14 19:18:29',NULL),(4,'SUPER USUARIO','BELEN','','','',1,'2023-09-14 19:55:56','2023-09-20 14:04:15'),(5,'MILIVOYÑ','BRAVO','BRAVO','79958584','6536415',1,'2023-09-28 22:52:47','2023-09-28 23:38:24'),(6,'ANA MARIA','MORATO','','','',1,'2023-09-28 23:40:58',NULL),(7,'AAA','MORATO','','','',1,'2023-09-28 23:44:42',NULL),(8,'MILIVOYAAA','PEREZ','BRAVO','79769996','8732535',1,'2023-09-28 23:46:40',NULL),(9,'AAA','SADASDASD','','','',1,'2023-09-28 23:46:55',NULL),(10,'MILIVOYAAA','MORATO','BRAVO','79769996','',1,'2023-09-28 23:47:27',NULL),(11,'RDRIGO','MAMANI','','79769996','99999999',1,'2023-10-01 21:06:19',NULL);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,7 +197,7 @@ CREATE TABLE `producto` (
   `idProducto` smallint(6) NOT NULL AUTO_INCREMENT,
   `foto` varchar(200) DEFAULT 'sinImagen.jpg',
   `nombreProducto` varchar(40) NOT NULL,
-  `descripcion` varchar(100) NOT NULL,
+  `descripcion` decimal(7,2) NOT NULL,
   `precio` decimal(7,2) NOT NULL,
   `codigo` varchar(10) NOT NULL,
   `stock` smallint(6) NOT NULL,
@@ -207,9 +209,9 @@ CREATE TABLE `producto` (
   PRIMARY KEY (`idProducto`),
   KEY `fk_producto_marca1_idx` (`idMarca`),
   KEY `fk_producto_tipo1_idx` (`idCategoria`),
-  CONSTRAINT `fk_producto_marca1` FOREIGN KEY (`idMarca`) REFERENCES `marca` (`idMarca`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_producto_tipo1` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`idCategoria`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_producto_marca1` FOREIGN KEY (`idMarca`) REFERENCES `marca` (`idMarca`),
+  CONSTRAINT `fk_producto_tipo1` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`idCategoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -218,7 +220,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,'Design.png','aaaaa','A cool toy car',19.99,'TC001',293,1,'2023-09-14 19:20:43','2023-09-15 17:32:57',1,1),(2,'IMG_20230909_090850.jpg','MILIVOY','',52.00,'1233',180,1,'2023-09-14 21:02:35','2023-09-15 17:33:15',1,0),(3,'1product.jpg','MILIVOY','FIDEO LARGO',12.00,'DFAS',400,1,'2023-09-15 16:20:57',NULL,1,0),(4,'sinImagen.jpg','RODRIGO','SDFS',2.00,'DDD',250,1,'2023-09-15 16:25:26',NULL,1,0),(5,'sinImagen.jpg','NENA','FIEDO LARGO',50.00,'DFAS',250,1,'2023-09-15 17:33:40',NULL,1,0),(6,'IMG_20230909_090715.jpg','NENA','SDFS',50.00,'4213F',100,1,'2023-09-15 17:34:00',NULL,1,0);
+INSERT INTO `producto` VALUES (8,'aaaaa.jpg','AVION  AAAAAAAAAAAAAAAAAAAAAAAAAAA',35.00,40.00,'4213Fa',0,1,'2023-10-01 19:23:27','2023-10-02 13:54:09',2,2),(9,'fghfh.jpeg','SOLDADO',10.00,15.00,'4213Fd',0,1,'2023-10-01 19:53:57','2023-10-02 13:46:41',1,1),(10,'sinImagen.jpg','SUBMARINO',25.00,50.00,'4213Ft',300,1,'2023-10-02 13:43:35',NULL,1,1),(11,'fghfh.jpeg','PERRITO',43.00,50.00,'DDD',400,1,'2023-10-02 13:58:26',NULL,1,1);
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,7 +245,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`idUsuario`),
   KEY `fk_usuario_empleado1_idx` (`idEmpleado`),
   CONSTRAINT `idEmpleado` FOREIGN KEY (`idEmpleado`) REFERENCES `empleado` (`idEmpleado`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -252,7 +254,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'r.jpg','admin','21232f297a57a5a743894a0e4a801fc3','admin',1,'2023-09-14 19:49:37','2023-09-15 17:32:37',NULL,1),(2,'r.jpg','admin1','96abb4d80a8b263804a1cb05f3ed18ac','vendedor',1,'2023-09-14 19:49:37','2023-09-15 17:26:35',NULL,2),(3,'Design.png','freddy','21232f297a57a5a743894a0e4a801fc3','admin',1,'2023-09-14 20:06:54','2023-09-14 20:07:36',NULL,1),(9,'','MILIBOYMRBB','c162de19c4c3731ca3428769d0cd593d','admin',1,'2023-09-15 17:24:35',NULL,NULL,2),(10,'r.jpg','adminkk','7aa3262b9526ff30025c2f389263399e','admin',1,'2023-09-15 17:24:56','2023-09-15 17:25:23',NULL,3);
+INSERT INTO `usuario` VALUES (1,'r.jpg','VENDEDOR1','21232f297a57a5a743894a0e4a801fc3','vendedor',1,'2023-09-14 19:49:37','2023-09-20 13:57:23',NULL,1),(11,'','VENDEDOR','0407e8c8285ab85509ac2884025dcf42','vendedor',1,'2023-09-20 13:58:11',NULL,NULL,2),(12,'','admin','21232f297a57a5a743894a0e4a801fc3','admin',1,'2023-09-20 14:00:03',NULL,NULL,3);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -276,7 +278,7 @@ CREATE TABLE `venta` (
   KEY `idUsuario` (`idUsuario`),
   CONSTRAINT `fk_compra_cliente1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_venta_usuario1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -285,7 +287,7 @@ CREATE TABLE `venta` (
 
 LOCK TABLES `venta` WRITE;
 /*!40000 ALTER TABLE `venta` DISABLE KEYS */;
-INSERT INTO `venta` VALUES (1,3,1,1,'2023-09-14 20:19:32',NULL,19.99),(2,3,1,1,'2023-09-14 20:37:53',NULL,19.99),(3,3,1,1,'2023-09-14 21:03:20',NULL,3120.00),(4,3,1,1,'2023-09-15 20:29:08',NULL,139.93);
+INSERT INTO `venta` VALUES (1,3,1,0,'2023-09-14 20:19:32',NULL,19.99),(2,3,1,1,'2023-09-14 20:37:53',NULL,19.99),(3,3,1,1,'2023-09-14 21:03:20',NULL,3120.00),(4,3,1,1,'2023-09-15 20:29:08',NULL,139.93),(7,3,1,1,'2023-09-15 21:51:10',NULL,36.00),(8,3,1,1,'2023-09-15 21:51:33',NULL,19.99),(9,3,1,1,'2023-09-15 22:15:37',NULL,19.99),(10,3,1,1,'2023-09-17 03:46:22',NULL,319.87),(11,3,1,0,'2023-09-17 03:54:21',NULL,59.97),(12,3,1,1,'2023-09-17 21:37:13',NULL,19.99),(13,3,1,1,'2023-09-17 22:32:40',NULL,69.99),(14,3,1,1,'2023-09-20 14:54:49',NULL,19.99),(15,3,12,1,'2023-09-21 00:23:51',NULL,1999.00),(16,3,11,1,'2023-09-21 00:42:33',NULL,150.00),(17,3,12,1,'2023-09-21 00:54:52',NULL,7999.00),(18,3,11,1,'2023-09-21 00:57:24',NULL,5000.00),(19,3,12,1,'2023-09-27 18:42:57',NULL,1999.00),(20,3,12,1,'2023-09-27 18:45:51',NULL,3840.00),(21,3,12,1,'2023-09-28 23:15:33',NULL,3120.00),(22,3,12,1,'2023-09-28 23:58:34',NULL,1999.00),(23,4,12,1,'2023-09-29 00:03:25',NULL,1999.00),(24,4,12,1,'2023-09-29 01:31:57',NULL,1999.00),(55,4,12,1,'2023-09-29 02:48:41',NULL,19.99),(56,4,12,1,'2023-09-29 02:49:01',NULL,1979.01),(57,4,12,1,'2023-09-29 02:54:52',NULL,1999.00),(58,4,12,1,'2023-09-29 02:55:22',NULL,1999.00),(59,3,12,1,'2023-09-29 02:55:53',NULL,999.50),(60,4,12,1,'2023-09-29 03:00:42',NULL,2600.00),(61,4,12,1,'2023-09-29 03:11:09',NULL,520.00),(62,4,12,1,'2023-10-01 19:23:54',NULL,5000.00),(63,3,12,1,'2023-10-01 19:54:36',NULL,12700.00),(64,4,12,1,'2023-10-01 21:09:40',NULL,12900.00),(82,4,12,1,'2023-10-02 14:40:30',NULL,14000.00),(83,3,12,1,'2023-10-02 14:47:02',NULL,2500.00);
 /*!40000 ALTER TABLE `venta` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -298,4 +300,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-15 16:32:02
+-- Dump completed on 2023-10-02 11:27:23

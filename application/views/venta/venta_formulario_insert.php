@@ -156,8 +156,9 @@
 
                                 <th class="column-title  ">Foto </th>
                                 <th class="column-title  text-center">Codigo </th>
-                                <th class="column-title  text-center">Nombre </th>
-                                <th class="column-title  text-center">Precio </th>
+                                <th class="column-title  text-center">Descripcion</th>
+                                <th class="column-title  text-center">Precio Ch. </th>
+                                <th class="column-title  text-center">Precio venta </th>
                                 <th class="column-title  text-center">N° de cajas</th>
                                 <th class="column-title  text-center">Unidades por cajas</th>
                                 <th class="column-title  text-center">Stock </th>
@@ -290,7 +291,7 @@
                 Se registro correctamente la venta, por favor entra a lista de venta.
             </div>
             <div class="modal-footer">
-            <?php echo form_open_multipart('venta/reportepdf'); ?>
+            <?php echo form_open_multipart('venta/reportepdf1'); ?>
                     <?php $pagoID=$this->db->query("SELECT MAX(idVenta) AS Venta 
                                                     FROM venta");
                     $lastID = 1 ;
@@ -396,6 +397,7 @@
     "<td> <img id='productos' width='150' height='150' src='<?php echo  base_url(); ?>uploads/products_images/" + producto.foto + "' alt=''></td>" +
     "<td style='vertical-align: middle;'>" + producto.codigo + "</td>" +
     "<td style='vertical-align: middle;'>" + producto.nombre + "<input class='form-control' name='idProducto[]' hidden type='number' value=" + producto.idProducto + " ></td>" +
+    "<td name='precio' style='vertical-align: middle; text-align: center;'>" + producto.descripcion + "</td>" +
     "<td name='precio' style='vertical-align: middle; text-align: center;'>" + producto.precioUnitario + "</td>" +
     "<td style='vertical-align: middle; text-align: center;'>" + producto.cajas + "</td>" +
     "<td style='vertical-align: middle; text-align: center;'>" + producto.categoria + "</td>" +

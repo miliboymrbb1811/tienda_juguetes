@@ -40,19 +40,66 @@
                             <br>
                             <div class="item form-group has-feedback">
 
-                                <label class="col-form-label col-md-1 label-align" for="marca">Nombre:</label>
+                                <label class="col-form-label col-md-1 label-align" for="marca">Descripcion:</label>
                                 <div class="col-md">
                                     <input readonly type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $row->nombreProducto; ?> ">
                                 </div>
-                               
-                                <label class="col-form-label col-md-1 label-align" for="codigo">codigo:</label>
+                            </div>
+                            
+                            <div class="item form-group has-feedback">
+                                <label class="col-form-label col-md-1 label-align" for="marca">Marca:</label>
                                 <div class="col-md">
-                                    <input readonly type="text" name="codigo" placeholder="codigo" value="<?php echo $row->codigo; ?>" class="form-control has-feedback-left">
-                                    <span class="fa fa-paint-brush form-control-feedback left" aria-hidden="true"></span>
+                                    <select disabled class="form-control" name="idmarca">
+                                        <option value="<?php echo $row->idMarca; ?>">
+                                            <?php echo $row->numeroTienda; ?>
+                                        </option>
+                                        <?php
+                                        $marca = $this->db->query(
+                                            "SELECT idMarca, numeroTienda FROM marca WHERE estado=1"
+                                        );
+                                        foreach ($marca->result() as $rowMarca) {
+                                        ?>
+                                            <option value="<?php echo $rowMarca->idMarca; ?>">
+                                                <?php echo $rowMarca->numeroTienda; ?>
+                                            </option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
-                                <label class="col-form-label col-md-1 label-align" for="precio">Precio:</label>
+
+                                <label class="col-form-label col-md-1 label-align" for="idcategoria">Categoría:</label>
                                 <div class="col-md">
-                                    <input  type="text" name="precio" placeholder="Precio" value="<?php echo $row->precio; ?>" class="form-control has-feedback-left">
+                                    <select  disabled class="form-control" name="idcategoria">
+                                        <option value="<?php echo $row->idCategoria; ?>">
+                                            <?php echo $row->numeroCategoria; ?>
+                                        </option>
+                                        <?php
+                                        $categoria = $this->db->query(
+                                            "SELECT idCategoria, numeroCategoria FROM categoria WHERE estado=1"
+                                        );
+                                        foreach ($categoria->result() as $rowCategoria) {
+                                        ?>
+                                            <option value="<?php echo $rowCategoria->idCategoria; ?>">
+                                                <?php echo $rowCategoria->numeroCategoria; ?>
+                                            </option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="item form-group has-feedback">  
+                            <label class="col-form-label col-md-1 label-align" for="descripcion">Precio Ch.:</label>
+                                <div class="col-md">
+                                    <input readonly type="number"  name="descripcion" class="form-control has-feedback-left" value="<?php echo $row->descripcion; ?>">
+                                    <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
+                                    <?php echo form_error('descripcion'); ?>
+                                </div>
+                         
+                                <label class="col-form-label col-md-1 label-align" for="precio">Precio venta:</label>
+                                <div class="col-md">
+                                    <input  type="number"  name="precio" placeholder="Precio" value="<?php echo $row->precio; ?>" class="form-control has-feedback-left">
                                     <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                                 </div>
                             </div>
@@ -66,26 +113,19 @@
                                 </div>
                                 <label class="col-form-label col-md-1 label-align" for="stock">Stock nuevo:</label>
                                 <div class="col-md">
-                                    <input  style="background-color: lightcoral;" type="text" name="stock0" id="stock0" placeholder="Stock nuevo"  class="form-control has-feedback-left">
+                                    <input  style="background-color: lightcoral;" type="number"  name="stock0" id="stock0" placeholder="Stock nuevo"  class="form-control has-feedback-left">
                                     <span class="fa fa-cubes form-control-feedback left" aria-hidden="true"></span>
                                 </div>
-                                <label  class="col-form-label col-md-1 label-align" for="stock">Stock total:</label>
-                                <div class="col-md">
-                                    <input  style="background-color: lightgreen;" readonly type="text"  value="<?php echo $row->stock; ?>" name="stock" id="stock" placeholder="Stock" class="form-control has-feedback-left"  >
-                                   
-                                </div>
+                               
                                
                             </div>
         
                             <div class="item form-group">
-                                <label class="col-form-label col-md-1 label-align" for="descripcion">Descripcion:</label>
+                            <label  class="col-form-label col-md-1 label-align" for="stock">Stock total:</label>
                                 <div class="col-md">
-                                    <input readonly  type="text" name="descripcion" class="form-control has-feedback-left" value="<?php echo $row->descripcion; ?>">
-                                    <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
-                                    <?php echo form_error('descripcion'); ?>
+                                    <input  style="background-color: lightgreen;" readonly type="text"  value="<?php echo $row->stock; ?>" name="stock" id="stock" placeholder="Stock" class="form-control has-feedback-left"  > 
                                 </div>
-                            </div>
-                          
+                          <br>
                             <div class="item form-group">
 
                             <div class="col-md text-center"> <!-- Agregado 'text-center' para centrar horizontalmente -->

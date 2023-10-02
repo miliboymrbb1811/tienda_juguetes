@@ -41,6 +41,7 @@ class Venta_model extends CI_Model
          producto.foto,
          producto.precio,
          producto.codigo,
+         producto.descripcion,
          producto.stock,
          categoria.numeroCategoria,
          marca.numeroTienda,
@@ -69,6 +70,8 @@ class Venta_model extends CI_Model
                "stock" => $row->stock,
                "codigo" => $row->codigo,
                "cajas"=> $row->cajas,
+               "descripcion"=> $row->descripcion,
+               
             );
          }
       }

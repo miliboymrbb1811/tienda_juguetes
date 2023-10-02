@@ -66,9 +66,9 @@
                                                 <th>Foto</th>
                                                 <th>codigo</th>
                                                 <th>descripcion</th>
-                                                <th>Nombre</th>
                                                 <th>Piezas por caja </th>
                                                 <th>cajas</th>
+                                                <th>precio Ch.</th>
                                                 <th>Precio</th>
                                                
                                                 <th>inventario</th>
@@ -98,10 +98,10 @@
 
                                                     </td>
                                                     <td style="text-align: center; vertical-align: middle; "><?php echo $row->codigo; ?></td>
-                                                    <th style="text-align: center; vertical-align: middle; "><?php echo $row->descripcion; ?></th>
                                                     <td style="text-align: center; vertical-align: middle; "><?php echo $row->nombreProducto; ?></td>
                                                     <td style="text-align: center; vertical-align: middle; "><?php echo $row->numeroCategoria; ?></td>
                                                     <td style="text-align: center; vertical-align: middle; "><?php echo $row->cajas; ?></td>
+                                                    <th style="text-align: center; vertical-align: middle; "><?php echo $row->descripcion; ?></th>
                                                     <td style="text-align: center; vertical-align: middle; "><?php echo $row->precio; ?></td>
                                                
                                                     

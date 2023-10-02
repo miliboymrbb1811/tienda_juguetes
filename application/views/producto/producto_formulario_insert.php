@@ -39,6 +39,8 @@
 
                                  
                             </div>
+                        </div>
+                        <div class="item form-group has-feedback">
 
                             <label class="col-form-label col-md-1 label-align" for="marca">Marca:</label>
                             <div class="col-md">
@@ -76,12 +78,7 @@
                         </div>
 
                         <div class="item form-group has-feedback">
-                            <label class="col-form-label col-md-1 label-align" for="precio">Precio:</label>
-                            <div class="col-md">
-                                <input type="text" name="precio" class="form-control has-feedback-left" value="<?php echo set_value('precio'); ?>">
-                                <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
-                                <?php echo form_error('precio'); ?>
-                            </div>
+
                             <label class="col-form-label col-md-1 label-align" for="codigo">codigo:</label>
                             <div class="col-md">
                                 <input type="text" name="codigo" class="form-control has-feedback-left" value="<?php echo set_value('codigo'); ?>">
@@ -90,19 +87,26 @@
                             </div>
                             <label class="col-form-label col-md-1 label-align" for="stock">Stock:</label>
                             <div class="col-md">
-                                <input type="text" name="stock" class="form-control has-feedback-left" value="<?php echo set_value('stock'); ?>">
+                                <input type="number" name="stock" class="form-control has-feedback-left" value="<?php echo set_value('stock'); ?>">
                                 <span class="fa fa-cubes form-control-feedback left" aria-hidden="true"></span>
                                 <?php echo form_error('stock'); ?>
                             </div>
                         </div>
                         <div>
                             <div class="item form-group">
-                                <label class="col-form-label col-md-1 label-align" for="descripcion">descripcion:</label>
+                            <label class="col-form-label col-md-1 label-align" for="descripcion">Precio Ch.:</label>
                                 <div class="col-md">
-                                    <input type="text" name="descripcion" class="form-control has-feedback-left" value="<?php echo set_value('descripcion'); ?>">
+                                    <input type="number"  name="descripcion" class="form-control has-feedback-left" value="<?php echo set_value('descripcion'); ?>">
                                     <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
                                     <?php echo form_error('descripcion'); ?>
                                 </div>
+                            <label class="col-form-label col-md-1 label-align" for="precio">Precio:</label>
+                            <div class="col-md">
+                                <input type="number"  name="precio" class="form-control has-feedback-left" value="<?php echo set_value('precio'); ?>">
+                                <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
+                                <?php echo form_error('precio'); ?>
+                            </div>
+                               
                             </div>
                         </div>
                         <div class="item form-group has-feedback">
