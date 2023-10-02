@@ -52,31 +52,34 @@
                             <input hidden name="idCliente" id="idCliente" value="0">
                             <input hidden name="idUsuario" id="idUsuario" value="<?php echo $_SESSION['idusuario'] ?>">
 
+                            <label class="col-form-label col-md-1 label-align" for="primerapellido">Departamento:</label>
 
-                            <label class="col-form-label col-md-1 label-align" for="nombre">Nombre Cliente:</label>
                             <div class="col-md-5">
-                                <input class="form-control" disabled name="nombre" id="nombre" placeholder="Sin nombre" />
-                                <div id="suggestions">
-                                    <ul id="autoSuggestionsList"></ul>
-                                </div>
-
+                                <input id="segundoA" disabled class="form-control" placeholder="Sin departamento" value=""></input>
                             </div>
+
+                          
 
                         </div>
 
                         <div class="item form-group has-feedback">
 
+
+                        <label class="col-form-label col-md-1 label-align" for="nombre">Nombre/s Cliente:</label>
+                            <div class="col-md-5">
+                                <input class="form-control" disabled name="nombre" id="nombre" placeholder="Sin nombres" />
+                                <div id="suggestions">
+                                    <ul id="autoSuggestionsList"></ul>
+                                </div>
+
+                            </div>
                             <label class="col-form-label col-md-1 label-align" for="primerapellido">Primer apellido:</label>
 
                             <div class="col-md-5">
-                                <input id="primerA" disabled class="form-control" placeholder="Sin primer apellido" value=""></input>
+                                <input id="primerA" disabled class="form-control" placeholder="Sin  apellidos" value=""></input>
                             </div>
 
-                            <label class="col-form-label col-md-1 label-align" for="primerapellido">Segundo Apellido:</label>
-
-                            <div class="col-md-5">
-                                <input id="segundoA" disabled class="form-control" placeholder="Sin segundo apellido" value=""></input>
-                            </div>
+                          
                             <!-- <input type="hidden" name="idProducto[]" id="idProducto[]" value="0"> -->
                         </div>
                         <div class="item form-group has-feedback">
@@ -213,38 +216,41 @@
                 </div>
                 <div class="modal-content alert alert-success ">
                     <div class="text-dark">
+                        
                         <p class=" text-dark font-13 m-b-30">
                             Usted va a insertar un nuevo cliente, por favor llene el siguiente campo:
                         </p>
                         <div class="item form-group has-feedback">
+                        <label class="col-form-label col-md-1 label-align" for="nombre">nombre/s:</label>
+<div class="col-md">
+    <input type="text" name="nombre" class="form-control has-feedback-left" value="<?php echo set_value('nombre'); ?>">
+    <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
+    <?php echo form_error('nombre'); ?>
+</div>
+<label class="col-form-label col-md-1 label-align" for="primerapellido">Apellido/s:</label>
+<div class="col-md">
+    <input type="text" name="primerapellido" class="form-control has-feedback-left" value="<?php echo set_value('primerapellido'); ?>">
+    <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
+    <?php echo form_error('primerapellido'); ?>
+</div>
 
 
 
-                            <label class="col-form-label col-md-1 label-align" for="nombre">nombre:</label>
-                            <div class="col-md">
-                                <input type="text" name="nombre" class="form-control has-feedback-left" value="<?php echo set_value('nombre'); ?>">
-                                <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
-                                <?php echo form_error('nombre'); ?>
-                            </div>
 
-                        </div>
+
+</div>
                         <div class="item form-group has-feedback">
 
-                            <label class="col-form-label col-md-1 label-align" for="primerapellido">Primer Apellido:</label>
-                            <div class="col-md">
-                                <input type="text" name="primerapellido" class="form-control has-feedback-left" value="<?php echo set_value('primerapellido'); ?>">
-                                <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
-                                <?php echo form_error('primerapellido'); ?>
-                            </div>
 
-                            <label class="col-form-label col-md-1 label-align" for="segundoapellido">Segundo Apellido:</label>
+                        <label class="col-form-label col-md-1 label-align" for="segundoapellido">Departamento:</label>
                             <div class="col-md">
                                 <input type="text" name="segundoapellido" class="form-control has-feedback-left" value="<?php echo set_value('segundoapellido'); ?>">
                                 <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
                                 <?php echo form_error('segundoapellido'); ?>
                             </div>
-
+                            
                         </div>
+                 
 
                         <div class="item form-group has-feedback">
                             <label class="col-form-label col-md-1 label-align" for="numerocelular">Nro. Celular:</label>

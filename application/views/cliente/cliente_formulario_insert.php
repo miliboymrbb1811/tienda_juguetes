@@ -33,24 +33,24 @@
                         ?>
                         <div class="item form-group has-feedback">
 
-                            <label class="col-form-label col-md-1 label-align" for="nombre">nombre:</label>
+                            <label class="col-form-label col-md-1 label-align" for="nombre">nombre/s:</label>
                             <div class="col-md-3">
                                 <input type="text" name="nombre" class="form-control has-feedback-left" value="<?php echo set_value('nombre'); ?>">
                                 <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
                                 <?php echo form_error('nombre'); ?>
                             </div>
 
-                            <label class="col-form-label col-md-1 label-align" for="primerapellido">Primer Apellido:</label>
+                            <label class="col-form-label col-md-1 label-align" for="primerapellido">Apellido/s:</label>
                             <div class="col-md-3">
                                 <input type="text" name="primerapellido" class="form-control has-feedback-left" value="<?php echo set_value('primerapellido'); ?>">
                                 <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
                                 <?php echo form_error('primerapellido'); ?>
                             </div>
 
-                            <label class="col-form-label col-md-1 label-align" for="segundoapellido">Segundo Apellido:</label>
+                            <label class="col-form-label col-md-1 label-align" for="segundoapellido">Departamento:</label>
                             <div class="col-md-3">
                                 <input type="text" name="segundoapellido" class="form-control has-feedback-left" value="<?php echo set_value('segundoapellido'); ?>">
-                                <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
+                                <span class="fa fa-bookmark form-control-feedback left" aria-hidden="true"></span>
                                 <?php echo form_error('segundoapellido'); ?>
                             </div>
 

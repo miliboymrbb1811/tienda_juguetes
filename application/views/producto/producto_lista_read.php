@@ -110,11 +110,11 @@
                                                         echo $row->stock;
                                                         ?>
                                                         <?php
-                                                if ($row->stock >= 1 && $row->stock <= 100) {
+                                                if ($row->stock >= 0.1 && $row->cajas <= 1) {
                                                     echo "<font color=\"orange\"><span class=\"spinner-grow\"></span><marquee scrollamount=\"30\" scrolldelay=\"1000\" loop=\"50\">Stock por agotarse</marquee></font>";
-                                                } else if ($row->stock == 0) {
+                                                } else if ($row->cajas == 0) {
                                                     echo "<font color=\"red\"><span>  Stock agotado</marquee></font>";
-                                                } else if ($row->stock >= 101) {
+                                                } else if ($row->cajas > 1) {
                                                     echo "<font color=\"green\"><span class=\"spinner-grow\"></span><marquee scrollamount=\"30\" scrolldelay=\"500\" loop=\"100\">Stock óptimo</marquee></font>";
                                                 }
                                                 

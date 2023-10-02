@@ -55,17 +55,15 @@
                                         Estimado vendedor en esta sección puede ver todos los clientes activos de la empresa
                                      </p>
 
-                                    <table id="datatable-buttons" class="table table-dark table-striped" style="width:100%">
+                                    <table id="datatable-buttons" class="table table-primary table-striped" style="width:100%">
                                         <thead>
-                                            <tr class="text-center table-dark text-dark">
-                                                <th>Nombre</th>
-                                                <th>Primer Apellido</th>
-                                                <th>Segundo Apellido</th>
-                                                <th>Nro. Carnet</th>
-                                                <th>Nro. Celular</th>
-                                                <th>Creado</th>
-                                                <th>Modificado</th>
-                                                <th>Acciones</th>
+                                            <tr class="text-center table-danger text-dark">
+                                            <th>Nombre/s</th>
+                                                <th>Apellidos/s</th>
+                                                <th>departamento</th>
+                                                <th>N°. Carnet</th>
+                                                <th>N°. Celular</th>
+                                                <th>Acciones</th
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -73,14 +71,11 @@
                                             foreach ($cliente->result() as $row) {
                                             ?>
                                                 <tr>
-                                                    <td><?php echo $row->nombre; ?></td>
-                                                    <td><?php echo $row->primerApellido; ?></td>
-                                                    <td><?php echo $row->segundoApellido; ?></td>
-                                                    <td><?php echo $row->numeroCI; ?></td>
-                                                    <td><?php echo $row->numeroCelular; ?></td>
-                                                    <td><?php echo formatearFechaMasHora($row->fechaRegistro); ?></td>
-                                                    <td><?php echo formatearFechaMasHora($row->fechaActualizacion); ?></td>
-
+                                                <td><?php echo $row->nombre; ?></td>
+                                                <td><?php echo $row->primerApellido; ?></td>
+                                                <td><?php echo $row->segundoApellido; ?></td>
+                                                <td><?php echo $row->numeroCI; ?></td>
+                                                <td><?php echo $row->numeroCelular; ?></td>
                                                     <td class="text-center">
                                                         <div class="btn-group">
                                                             <?php echo form_open_multipart('cliente/modificar'); ?>
@@ -115,7 +110,7 @@
 </div><!-- Fin Right Col Role Main -->
 
 
-<!------------------------------------------------- Modal ------------------------------------------------------->
+<!---------------------------------------------------------------- Modal ------------------------------------------------------->
 <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content alert alert-danger ">

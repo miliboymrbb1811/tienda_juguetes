@@ -38,8 +38,8 @@
     <tr class="text-center table-dark text-dark">
     
     <th>Nombre</th>
-                                                <th>Primer Apellido</th>
-                                                <th>Segundo Apellido</th>
+                                                <th>Apellido/s</th>
+                                                <th>Departamento</th>
                                                 <th>Nro. Carnet</th>
                                                 <th>Nro. Celular</th>
                                                 <th>Creado</th>

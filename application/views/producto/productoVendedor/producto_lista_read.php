@@ -45,13 +45,15 @@
                                         <thead>
                                             <tr class="text-center table-danger text-dark">
                                             <th>Foto</th>
-                                                <th>Nombre</th>
-                                                <th>unidades por caja </th>
-                                                <th>cajas</th>
-                                                <th>Precio</th>
-                                                <th>codigo</th>
-                                                <th>inventario</th>
-                                                <th>descripcion</th>
+                                            <th>Codigo</th>
+                                            <th>descripcion</th>
+                                                <th>Unidades por caja </th>
+                                                <th>Cajas</th>
+                                                <th>Precio Ch</th>
+                                                <th>Precio venta</th>
+                                                
+                                                <th>Stock</th>
+                                                
                                                 <th>estado</th>
                                             </tr>
                                         </thead>
@@ -75,11 +77,13 @@
                                                         }
                                                         ?>
                                                     </td>
+                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->codigo; ?></td>
                                                     <td style="text-align: center; vertical-align: middle; "><?php echo $row->nombreProducto; ?></td>
                                                     <td style="text-align: center; vertical-align: middle; "><?php echo $row->numeroCategoria; ?></td>
                                                     <td style="text-align: center; vertical-align: middle; "><?php echo $row->cajas; ?></td>
+                                                    <th  style="text-align: center; vertical-align: middle; "><?php echo $row->descripcion; ?></th>
                                                     <td style="text-align: center; vertical-align: middle; "><?php echo $row->precio; ?></td>
-                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->codigo; ?></td>
+                                                    
                                                     <td  style="text-align: center; vertical-align: middle; "><?php
 
                                                         ?>
@@ -91,15 +95,17 @@
                                                         }
                                                         ?>
                                                     </td>
-                                                    <th  style="text-align: center; vertical-align: middle; "><?php echo $row->descripcion; ?></th>
+                                                    
 
 
                                                     <th  style="text-align: center; vertical-align: middle; ">
                                                         <?php
-                                                        if ($row->stock <= 100) {
-                                                            echo "<font color=\"red\"><span class=spinner-grow></span>bajo</font>";
-                                                        } else {
-                                                            echo "<font color=\"green\"><span class=spinner-grow></span> optimo</font>";
+                                                         if ($row->stock >= 0.1 && $row->cajas <= 1) {
+                                                            echo "<font color=\"orange\"><span class=\"spinner-grow\"></span><marquee scrollamount=\"30\" scrolldelay=\"1000\" loop=\"50\">Stock por agotarse</marquee></font>";
+                                                        } else if ($row->cajas == 0) {
+                                                            echo "<font color=\"red\"><span>  Stock agotado</marquee></font>";
+                                                        } else if ($row->cajas >= 1) {
+                                                            echo "<font color=\"green\"><span class=\"spinner-grow\"></span><marquee scrollamount=\"30\" scrolldelay=\"500\" loop=\"100\">Stock óptimo</marquee></font>";
                                                         }
                                                         ?>
 

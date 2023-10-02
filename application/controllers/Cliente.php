@@ -80,19 +80,20 @@ class Cliente extends CI_Controller
         $this->form_validation->set_rules(
             'primerapellido',
             'Primer apellido del cliente',
-            'required|min_length[4]|max_length[30]|alpha',
+            'required|min_length[3]|max_length[50]',
             array(
                 'required' => 'Se requiere ingresar el primer apellido del cliente.',
-                'min_length' => 'El apellido debe tener al menos 4 caracteres.',
-                'max_length' => '¡El apellido no debe contener más de 30 caracteres!.',
-                'alpha' => '¡El apellido solo debe contener letras!.'
+                'min_length' => 'El apellido debe tener al menos 3 caracteres.',
+                'max_length' => '¡El apellido no debe contener más de 50 caracteres!.',
+               
             )
         );
         $this->form_validation->set_rules(
             'numeroci',
             'Número de Carnet del cliente',
-            'min_length[6]|max_length[8]|is_natural',
+            'min_length[6]|max_length[8]|is_natural|required',
             array(
+                'required' => 'Se requiere ingresar el primer apellido del cliente.',
                 'min_length' => '¡Ingrese un número de carnet válido!.',
                 'max_length' => '¡El número de carnet no debe contener más de 8 caracteres!.',
                 'is_natural' => '¡No ingrese caracteres que no sean números!.'

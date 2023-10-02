@@ -50,9 +50,9 @@
                                     <table id="datatable-buttons" class="table table-primary table-striped" style="width:100%">
                                         <thead>
                                             <tr class="text-center table-danger text-dark">
-                                                <th>Nombre</th>
-                                                <th>Primer Apellido</th>
-                                                <th>Segundo Apellido</th>
+                                                <th>Nombre/s</th>
+                                                <th>Apellidos/s</th>
+                                                <th>departamento</th>
                                                 <th>Nro. Carnet</th>
                                                 <th>Nro. Celular</th>
                                                 <th>Creado</th>
