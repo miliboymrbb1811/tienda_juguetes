@@ -12,7 +12,7 @@
             $this->Cell(30);
             $this->Cell(120, 10, '', 0, 0, 'C');
             $this->Ln(5);
-            $ruta = base_url("img/logo2.png");
+            $ruta = base_url("img/logo3.png");
             $this->Image($ruta, 60, 60, 100, 100);
 
        }

@@ -60,10 +60,10 @@
                                     <table id="datatable-buttons" class="table table-dark table-striped" style="width:100%">
                                         <thead>
                                             <tr class="text-center table-dark text-dark">
-
+                                                <th>Cliente</th>
                                                 <th>Total</th>
                                                 <th>Estado</th>
-                                                <th>fecha Venta</th>
+                                                <th>fechaRegistro</th>
                                                 <th>Reporte</th>
                                                 <th>Cancelar</th>
                                             </tr>
@@ -73,23 +73,36 @@
                                             foreach ($venta->result() as $row) {
                                             ?>
                                                 <tr>
-                                                   
-                                                    <td><?= $row->total ?></td>
-                                                    <td class="text-center"><?= $row->estado ? "Activo" : "Desactivado" ?></td>
-                                                    <td class="text-center"><?= $row->fechaRegistro ?></td>
-                                                    <td class="text-center">
-                                                        <?= form_open_multipart('venta/reportepdf1') ?>
-                                                        <input type="hidden" name="idventa" value="<?= $row->idVenta ?>">
-                                                        <button formtarget="_blank" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Detalle de la venta">
+                                                    <td><?php echo $row->nombreCliente; ?></td>
+                                                    <td> <?php echo $row->total  ?></td>
+                                                    <td><?php
+                                                        if ($row->estado) {
+                                                            echo "Activo";
+                                                        } else {
+                                                            echo "Desactivado";
+                                                        }
+
+                                                        ?></td>
+                                                    <td><?php echo $row->fechaRegistro; ?></td>
+
+
+
+                                                    <td  class="text-center">
+                                                        <a ><?php  echo form_open_multipart('venta/reportepdf1'); ?>
+                                                        <input type="hidden" name="idventa" value="<?php echo $row->idVenta; ?>">
+                                                       <button    formtarget="_blank" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="detalle de la venta">
                                                             <i class="fa fa-file-pdf-o"></i>
                                                         </button>
-                                                        <?= form_close() ?>
+                                                        <?php echo form_close(); ?>
                                                     </td>
+
                                                     <td class="text-center">
                                                         <div class="btn-group">
-                                                            <button class="btn btn-outline-danger" data-toggle="tooltip" onclick="return confirm_modalFotos(<?= $row->idVenta ?>)" data-placement="top" title="Deshabilitar">
+
+                                                            <button class="btn btn-outline-danger" data-toggle="tooltip" onclick="return confirm_modalFotos(<?php echo $row->idVenta; ?>)" data-placement="top" title="Deshabilitar">
                                                                 <i class="fa fa-toggle-off"></i>
                                                             </button>
+
                                                         </div>
                                                     </td>
                                                 </tr>

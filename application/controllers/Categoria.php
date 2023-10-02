@@ -44,12 +44,9 @@ class Categoria extends CI_Controller {
         $this->form_validation->set_rules(
             'nombrecategoria',
             'Nombre de Categoria',
-            'required|min_length[2]|max_length[30]',//|alpha  hace que solo se pueda ingresar palablas completas sin espacio
+            'required',//|alpha  hace que solo se pueda ingresar palablas completas sin espacio
             array(
-                'required'=>'Se requiere ingresar la categoría del producto.',
-                'min_length'=>'La categoría debe tener al menos 2 caracteres.',
-                'max_length'=>'¡La categoría no debe contener más de 30 caracteres!.',
-                'alpha'=>'La categoría solo debe contener letras!'
+                'required'=>'Se requiere ingresar el numero de categoría del producto.',
                 )
             );
         if($this->form_validation->run()==FALSE)

@@ -50,28 +50,29 @@
                                         ?>
                                     </div>
                                     <br><br>
-                                    <p class="text-muted font-13 m-b-30">
+                                    <!-- <p class="text-muted font-13 m-b-30">
                                         Hora Actual: <?php echo date('d/m/Y H:i:s') ?>
                                         <br>
                                         Tipo: <?php echo $this->session->userdata('tipo') ?>
                                         <br>
                                         ID: <?php echo $this->session->userdata('idusuario') ?>
-                                        <br>
-                                        Estos datos no serán visibles en el producto final.
-                                    </p>
+                                        <br>-->
+                                       <h4 > esta es la linea de productos que  se tieen actialmetne en la tienda.</h4>
+                                    </p> 
 
                                     <table id="datatable-buttons" class="table table-primary table-striped " style="width:100%">
                                         <thead>
                                             <tr class="text-center table-danger text-dark">
                                                 <th>Foto</th>
+                                                <th>codigo</th>
+                                                <th>descripcion</th>
                                                 <th>Nombre</th>
-                                                <th>N° de tienda</th>
-                                                <th>unidades por caja </th>
+                                                <th>Piezas por caja </th>
                                                 <th>cajas</th>
                                                 <th>Precio</th>
-                                                <th>codigo</th>
+                                               
                                                 <th>inventario</th>
-                                                <th>descripcion</th>
+                                               
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -96,28 +97,31 @@
                                                         ?>
 
                                                     </td>
+                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->codigo; ?></td>
+                                                    <th style="text-align: center; vertical-align: middle; "><?php echo $row->descripcion; ?></th>
                                                     <td style="text-align: center; vertical-align: middle; "><?php echo $row->nombreProducto; ?></td>
-                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->numeroTienda; ?></td>
                                                     <td style="text-align: center; vertical-align: middle; "><?php echo $row->numeroCategoria; ?></td>
                                                     <td style="text-align: center; vertical-align: middle; "><?php echo $row->cajas; ?></td>
                                                     <td style="text-align: center; vertical-align: middle; "><?php echo $row->precio; ?></td>
-                                                    <td style="text-align: center; vertical-align: middle; "><?php echo $row->codigo; ?></td>
+                                               
                                                     
                                                     <td style="text-align: center; vertical-align: middle; ">
                                                         <?php
                                                         echo $row->stock;
                                                         ?>
                                                         <?php
-                                                        if ($row->stock <= 100) {
-                                                            echo "<font color=\"red\"><span class=spinner-grow></span><marquee  scrollamount=\"30\" scrolldelay=\"1000\" loop=\"50\"> stock por agotarse</marquee></font>";
-                                
-                                                        } else {
-                                                            echo "<font color=\"green\"><span class=spinner-grow></span><marquee  scrollamount=\"30\" scrolldelay=\"500\" loop=\"100\"> stock optimo</marquee> </font>";
-                                                        }
+                                                if ($row->stock >= 1 && $row->stock <= 100) {
+                                                    echo "<font color=\"orange\"><span class=\"spinner-grow\"></span><marquee scrollamount=\"30\" scrolldelay=\"1000\" loop=\"50\">Stock por agotarse</marquee></font>";
+                                                } else if ($row->stock == 0) {
+                                                    echo "<font color=\"red\"><span>  Stock agotado</marquee></font>";
+                                                } else if ($row->stock >= 101) {
+                                                    echo "<font color=\"green\"><span class=\"spinner-grow\"></span><marquee scrollamount=\"30\" scrolldelay=\"500\" loop=\"100\">Stock óptimo</marquee></font>";
+                                                }
+                                                
                                                         ?>
                                                       
                                                     </td>
-                                                    <th><?php echo $row->descripcion; ?></th>
+                                                    
 
                                                     <td class="text-center">
                                                         <div class="btn-group">
@@ -128,10 +132,10 @@
                                                             </button>
                                                             <?php echo form_close(); ?>
 
-                                                            <?php echo form_open_multipart('producto/eliminarbd'); ?>
+                                                            <?php echo form_open_multipart('producto/modificarCantidad'); ?>
                                                             <input type="hidden" name="idproducto" value="<?php echo $row->idProducto; ?>">
-                                                            <button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar">
-                                                                <i class="fa fa-trash-o"></i>
+                                                            <button class="btn btn-success" data-toggle="tooltip" data-placement="top" title="agregar stock">
+                                                                <i class="fa fa-upload"></i>
                                                             </button>
                                                             <?php echo form_close(); ?>
 

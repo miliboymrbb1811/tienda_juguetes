@@ -57,6 +57,33 @@
               </li>
               <li>
                 <a>
+                  <i class="fa fa-users"></i>Clientes
+                  <span class="fa fa-chevron-down"></span>
+                </a>
+                <ul class="nav child_menu">
+                  <li>
+                    <?php echo form_open_multipart('cliente/index'); ?>
+                    <button  type="submit" class="col-md-11 btn btn-dark">
+                      <!----------icono del boton----------->
+                      <!--<i class="fa fa-group"></i> <br>-->
+                      Clientes
+
+                    </button>
+                    <?php echo form_close(); ?>
+                  </li>
+                  <li>
+                    <?php echo form_open_multipart('cliente/deshabilitados'); ?>
+                    <button type="submit" class="col-md-11 btn btn-dark">
+                      <!--<i class="fa fa-eye"></i><br>-->
+                      Clientes Deshabilitados
+
+                    </button>
+                    <?php echo form_close(); ?>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>
                   <i class="fa fa-cubes"></i>producto
                   <span class="fa fa-chevron-down"></span>
                 </a>

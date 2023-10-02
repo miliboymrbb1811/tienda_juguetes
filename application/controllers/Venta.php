@@ -207,12 +207,9 @@ class Venta extends CI_Controller
             $this->pdf->Cell(0, 5, 'COMPROBANTE', 0, 1, 'C', 1);
             $this->pdf->Cell(0, 5, 'DETALLE DE VENTA', 0, 1, 'C', 1);
             $this->pdf->Ln();
-            $this->pdf->Image("img/marcadeagua.png", 165, 10, 40, 30, 'PNG');
+            $this->pdf->Image("img/sismrbb1.png", 165, 10, 40, 37, 'PNG');
             $this->pdf->SetFont('Arial', 'B', 10);
             $this->pdf->Ln(0);
-
-        
-
 
             $this->pdf->Ln(0);
             $actividad = $this->venta_model->listaventa1($_POST['idventa']);
@@ -225,7 +222,16 @@ class Venta extends CI_Controller
             $this->pdf->SetFont('Arial', '', 11);
             $this->pdf->Cell(160, 7, utf8_decode($usuario), 0, 1, 'L', 0);
 
-      
+            $this->pdf->Ln(0);
+            $actividad = $this->venta_model->detalle($_POST['idventa']);
+            $actividad = $actividad->result();
+            foreach ($actividad as $rowa) {
+                $act = $rowa->nombreCliente;
+            }
+            $this->pdf->Cell(50, 7, utf8_decode('cliente:'), 0, 0, 'L', 0);
+            $this->pdf->SetFont('Arial', '', 11);
+            $this->pdf->Cell(160, 7, utf8_decode($act), 0, 1, 'L', 0);
+
 
             $this->pdf->Ln(0);
             $actividad = $this->venta_model->reporteventa($_POST['idventa']);
@@ -246,13 +252,14 @@ class Venta extends CI_Controller
             $this->pdf->Cell(325, 8, 'Nro. de registro'.' :'.utf8_decode($ventaId) , 0, 1, 'C', 1);
             $this->pdf->SetFillColor(0, 0, 0);
             $this->pdf->SetTextColor(255, 255, 255);
-            $this->pdf->Cell(180, 8, 'DETALLE'.''.utf8_decode($ventaId) , 0, 1, 'C', 1);
+            $this->pdf->Cell(180, 8, 'DETALLE', 0, 1, 'C', 1);
            
             // Obtén el ID de la venta desde el formulari
             $this->pdf->SetTextColor(0, 0, 0);
             $this->pdf->SetFont('Arial', 'B', 11);
             $this->pdf->Cell(30, 8, utf8_decode('Cantidad'), 1, 0, 'C', 0);
-            $this->pdf->Cell(100, 8, utf8_decode('Producto'), 1, 0, 'C', 0);
+            $this->pdf->Cell(20, 8, utf8_decode('cajas'), 1, 0, 'C', 0);
+            $this->pdf->Cell(80, 8, utf8_decode('Producto'), 1, 0, 'C', 0);
             $this->pdf->Cell(20, 8, utf8_decode('P/U'), 1, 0, 'C', 0);
             $this->pdf->Cell(30, 8, utf8_decode('Total Bs'), 1, 1, 'C', 0);
 
@@ -263,15 +270,26 @@ class Venta extends CI_Controller
                 $descripcion = $row->nombreProducto;
                 $precio = $row->precio;
                 $cantidad = $row->cantidad;
+                $categoria = $row->numeroCategoria;
                 $total = $row->precioTotal;
-
+                
                 $this->pdf->SetFont('Arial', '', 10);
                 $this->pdf->Cell(30, 5, utf8_decode($cantidad), 1, 0, 'C', false);
-                $this->pdf->Cell(100, 5, utf8_decode($descripcion), 1, 0, 'L', false);
+                
+                // Asegurarse de que $categoria no sea igual a cero para evitar una división por cero
+                if ($categoria != 0) {
+                    $resultado = $cantidad / $categoria;
+                } else {
+                    $resultado = 0; // Otra acción en caso de división por cero
+                }
+                
+                $this->pdf->Cell(20, 5, utf8_decode($resultado), 1, 0, 'C', false);
+                $this->pdf->Cell(80, 5, utf8_decode($descripcion), 1, 0, 'L', false);
                 $this->pdf->Cell(20, 5, utf8_decode($precio), 1, 0, 'C', false);
                 $this->pdf->Cell(30, 5, utf8_decode($total), 1, 0, 'C', false);
-
+                
                 $this->pdf->Ln();
+                
             }
 
             $this->pdf->Ln(2);
@@ -340,7 +358,16 @@ class Venta extends CI_Controller
             $this->pdf->SetFont('Arial', '', 11);
             $this->pdf->Cell(160, 7, utf8_decode($usuario), 0, 1, 'L', 0);
 
-      
+            $this->pdf->Ln(0);
+            $actividad = $this->venta_model->detalle($_POST['idventa']);
+            $actividad = $actividad->result();
+            foreach ($actividad as $rowa) {
+                $act = $rowa->nombreCliente;
+            }
+            $this->pdf->Cell(50, 7, utf8_decode('cliente:'), 0, 0, 'L', 0);
+            $this->pdf->SetFont('Arial', '', 11);
+            $this->pdf->Cell(160, 7, utf8_decode($act), 0, 1, 'L', 0);
+
 
             $this->pdf->Ln(0);
             $actividad = $this->venta_model->reporteventa($_POST['idventa']);
@@ -367,7 +394,8 @@ class Venta extends CI_Controller
             $this->pdf->SetTextColor(0, 0, 0);
             $this->pdf->SetFont('Arial', 'B', 11);
             $this->pdf->Cell(30, 8, utf8_decode('Cantidad'), 1, 0, 'C', 0);
-            $this->pdf->Cell(100, 8, utf8_decode('Producto'), 1, 0, 'C', 0);
+            $this->pdf->Cell(20, 8, utf8_decode('cajas'), 1, 0, 'C', 0);
+            $this->pdf->Cell(80, 8, utf8_decode('Producto'), 1, 0, 'C', 0);
             $this->pdf->Cell(20, 8, utf8_decode('P/U'), 1, 0, 'C', 0);
             $this->pdf->Cell(30, 8, utf8_decode('Total Bs'), 1, 1, 'C', 0);
 
@@ -378,15 +406,26 @@ class Venta extends CI_Controller
                 $descripcion = $row->nombreProducto;
                 $precio = $row->precio;
                 $cantidad = $row->cantidad;
+                $categoria = $row->numeroCategoria;
                 $total = $row->precioTotal;
-
+                
                 $this->pdf->SetFont('Arial', '', 10);
                 $this->pdf->Cell(30, 5, utf8_decode($cantidad), 1, 0, 'C', false);
-                $this->pdf->Cell(100, 5, utf8_decode($descripcion), 1, 0, 'L', false);
+                
+                // Asegurarse de que $categoria no sea igual a cero para evitar una división por cero
+                if ($categoria != 0) {
+                    $resultado = $cantidad / $categoria;
+                } else {
+                    $resultado = 0; // Otra acción en caso de división por cero
+                }
+                
+                $this->pdf->Cell(20, 5, utf8_decode($resultado), 1, 0, 'C', false);
+                $this->pdf->Cell(80, 5, utf8_decode($descripcion), 1, 0, 'L', false);
                 $this->pdf->Cell(20, 5, utf8_decode($precio), 1, 0, 'C', false);
                 $this->pdf->Cell(30, 5, utf8_decode($total), 1, 0, 'C', false);
-
+                
                 $this->pdf->Ln();
+                
             }
 
             $this->pdf->Ln(2);

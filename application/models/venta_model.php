@@ -7,11 +7,14 @@ class Venta_model extends CI_Model
 
    public function listaventa() //select
    {
-      $this->db->select('v.idVenta, p.nombreProducto, v.total, v.fechaRegistro, v.estado')
+      $this->db->select('v.idVenta, p.nombreProducto, v.total, v.fechaRegistro, v.estado, CONCAT(per.nombre, " ", per.primerApellido) AS nombreCliente')
       ->from('venta v')
       ->join('detalle d', 'v.idVenta = d.idVenta')
       ->join('producto p', 'd.idProducto = p.idProducto')
+      ->join('cliente c', 'v.idCliente = c.idCliente')
+      ->join('persona per', 'c.idPersona = per.idPersona')
       ->order_by('v.fechaRegistro', 'desc');
+
   
       return $this->db->get();
    }
@@ -33,7 +36,15 @@ class Venta_model extends CI_Model
       $response2 = array();
       if (isset($postData['search'])) {
          // Select record
-         $this->db->select('*');
+         $this->db->select('producto.idProducto,
+         producto.nombreProducto,
+         producto.foto,
+         producto.precio,
+         producto.codigo,
+         producto.stock,
+         categoria.numeroCategoria,
+         marca.numeroTienda,
+         CONCAT(ROUND(producto.stock / categoria.numeroCategoria, 1)) AS cajas');
          $this->db->from('bddjuguetes.producto'); //tabla productos
          $this->db->join('bddjuguetes.marca', 'marca.idMarca = producto.idMarca');
          $this->db->join('bddjuguetes.categoria', 'categoria.idCategoria = producto.idCategoria');
@@ -46,7 +57,7 @@ class Venta_model extends CI_Model
 
 
          foreach ($records as $row) {
-            $value = $row->nombreProducto . ' - ' . $row->numeroTienda;
+            $value = $row->nombreProducto . ' - ' . $row->codigo;
             $response2[] = array(
                "value" => $value,
                "nombre" => $row->nombreProducto,
@@ -57,6 +68,7 @@ class Venta_model extends CI_Model
                "foto" => $row->foto,
                "stock" => $row->stock,
                "codigo" => $row->codigo,
+               "cajas"=> $row->cajas,
             );
          }
       }
@@ -195,16 +207,16 @@ class Venta_model extends CI_Model
    public function detalle($idventa) //select
    {
 
-       $this->db->select('*'); //select *
-       $this->db->FROM('detalle'); //tabla producto //condición where estado = 1
-       $this->db->where('venta.idVenta', $idventa);
-       $this->db->JOIN('venta', 'venta.idVenta=detalle.idVenta');
-       $this->db->JOIN('producto ', 'producto.idProducto=detalle.idProducto');
-       $this->db->JOIN('categoria', 'categoria.idCategoria=producto.idCategoria');
-       $this->db->JOIN('marca', 'marca.idMarca=producto.idMarca');
-       $this->db->JOIN('cliente', 'cliente.idCliente=venta.idCliente');
-       $this->db->JOIN('persona', 'persona.idPersona=cliente.idPersona');
-
+      $this->db->select('detalle.*, venta.idVenta, producto.nombreProducto,producto.precio, venta.total, venta.fechaRegistro, venta.estado, CONCAT(persona.nombre, " ", persona.primerApellido) AS nombreCliente, categoria.numeroCategoria')
+      ->from('detalle')
+      ->join('venta', 'venta.idVenta = detalle.idVenta')
+      ->join('producto', 'producto.idProducto = detalle.idProducto')
+      ->join('categoria', 'categoria.idCategoria = producto.idCategoria')
+      ->join('marca', 'marca.idMarca = producto.idMarca')
+      ->join('cliente', 'cliente.idCliente = venta.idCliente')
+      ->join('persona', 'persona.idPersona = cliente.idPersona')
+      ->where('venta.idVenta', $idventa);
+  
 
        //inner join a una segunda tabla
        //si se gusta añadir una especie de AND de SQL se puede repetir nuevamente la línea previa a este comentario. ($this->db->where('estado','1');)

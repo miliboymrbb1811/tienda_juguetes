@@ -103,9 +103,9 @@ class Empleado extends CI_Controller {
         }
         else
         {
-            $data['nombre']=strtoupper($_POST['nombre']);
-            $data['primerApellido']=strtoupper($_POST['primerapellido']);
-            $data['segundoApellido']=strtoupper($_POST['segundoapellido']);
+            $data['nombre']=mb_strtoupper($_POST['nombre']);
+            $data['primerApellido']=mb_strtoupper($_POST['primerapellido']);
+            $data['segundoApellido']=mb_strtoupper($_POST['segundoapellido']);
             $data['numeroCelular']=$_POST['numerocelular'];
             $data['numeroCI']=$_POST['numeroci'];
             $idPersona = $this->persona_model->agregarPersona($data);
@@ -142,9 +142,9 @@ class Empleado extends CI_Controller {
         public function modificarbd()
     {
         $idempleado=$_POST['idpersona'];
-        $data['nombre']=strtoupper($_POST['nombre']);
-        $data['primerApellido']=strtoupper($_POST['primerapellido']);
-        $data['segundoApellido']=strtoupper($_POST['segundoapellido']);
+        $data['nombre']=mb_strtoupper($_POST['nombre']);
+        $data['primerApellido']=mb_strtoupper($_POST['primerapellido']);
+        $data['segundoApellido']=mb_strtoupper($_POST['segundoapellido']);
         $data['numeroCelular']=$_POST['numerocelular'];
         $data['numeroCI']=$_POST['numeroci'];
         $data['fechaActualizacion']=date('Y-m-d H:i:s');
