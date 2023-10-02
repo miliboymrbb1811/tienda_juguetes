@@ -6,7 +6,7 @@ class Cliente extends CI_Controller
     public function index()
     {
 
-        if ($this->session->userdata('tipo') == 'admin') {
+        if ($this->session->userdata('tipo') == 'admin'|| $this->session->userdata('tipo') == 'vendedor') {
             $lista = $this->cliente_model->listaempleado();
             $data['cliente'] = $lista;
 

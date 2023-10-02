@@ -6,7 +6,7 @@ class Venta extends CI_Controller
     public function index()
     {
 
-        if ($this->session->userdata('tipo') == 'admin') {
+        if ($this->session->userdata('tipo') == 'admin'|| $this->session->userdata('tipo') == 'vendedor') {
             $data['venta'] = $this->venta_model->listaventa();
 
             $views = [
@@ -22,7 +22,7 @@ class Venta extends CI_Controller
                 $this->load->view($view, $data);
             }
         } else {
-            redirect('usuarios/panel', 'refresh');
+            redirect('usuarios/panel','refresh');
         }
     }
     public function index2()
