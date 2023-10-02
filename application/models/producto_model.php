@@ -20,7 +20,7 @@ class Producto_model extends CI_Model {
         producto.idMarca,
         producto.descripcion,
         marca.numeroTienda,
-        CONCAT(ROUND(producto.stock / categoria.numeroCategoria, 1), " cajas") AS cajas'
+        CONCAT(ROUND(producto.stock / categoria.numeroCategoria, 1)) AS cajas'
     );
     
     $this->db->from('producto'); //tabla producto

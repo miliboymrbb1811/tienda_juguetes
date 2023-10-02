@@ -54,12 +54,12 @@ class usuarios extends CI_Controller
                 $this->form_validation->set_rules(
                         'login',
                         'Username del usuarios',
-                        'required|min_length[3]|max_length[50]|alpha',
+                        'required|min_length[3]|max_length[50]',
                         array(
                                 'required' => 'Se requiere ingresar el nombre de usuarios!.',
                                 'min_length' => 'El usuarios debe tener al menos 3 caracteres.',
                                 'max_length' => '¡El usuarios no debe contener más de 50 caracteres!.',
-                                'alpha' => '¡La marca solo debe contener letras!.'
+                                
                         )
                 );
                 $this->form_validation->set_rules(
@@ -276,10 +276,10 @@ class usuarios extends CI_Controller
 
                         if ($this->session->userdata('tipo') == "admin") {
                                 //cargo admin
-                                redirect('reporte/index', 'refresh');
+                                redirect('producto/index', 'refresh');
                         } else if ($this->session->userdata('tipo') == "vendedor") {
                                 //cargo vendedor 
-                                redirect('venta/index2', 'refresh');
+                                redirect('producto/index2', 'refresh');
                         }
                 } else {
                         //USUARIO NO LOGUEADO

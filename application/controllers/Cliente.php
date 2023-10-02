@@ -6,7 +6,7 @@ class Cliente extends CI_Controller
     public function index()
     {
 
-        if ($this->session->userdata('tipo') == 'admin') {
+        if ($this->session->userdata('tipo') == 'admin'|| $this->session->userdata('tipo') == 'vendedor') {
             $lista = $this->cliente_model->listaempleado();
             $data['cliente'] = $lista;
 
@@ -70,48 +70,30 @@ class Cliente extends CI_Controller
         $this->form_validation->set_rules(
             'nombre',
             'Nombre del cliente',
-            'required|min_length[4]|max_length[30]',
+            'required|min_length[3]|max_length[30]',
             array(
                 'required' => 'Se requiere ingresar el nombre del cliente.',
-                'min_length' => 'El nombre debe tener al menos 4 caracteres.',
+                'min_length' => 'El nombre debe tener al menos 3 caracteres.',
                 'max_length' => '¡El nombre no debe contener más de 30 caracteres!.'
             )
         );
         $this->form_validation->set_rules(
             'primerapellido',
             'Primer apellido del cliente',
-            'required|min_length[4]|max_length[30]|alpha',
+            'required|min_length[3]|max_length[50]',
             array(
                 'required' => 'Se requiere ingresar el primer apellido del cliente.',
-                'min_length' => 'El apellido debe tener al menos 4 caracteres.',
-                'max_length' => '¡El apellido no debe contener más de 30 caracteres!.',
-                'alpha' => '¡El apellido solo debe contener letras!.'
-            )
-        );
-        $this->form_validation->set_rules(
-            'segundoapellido',
-            'Segundo apellido del cliente',
-            'min_length[4]|max_length[30]|alpha',
-            array(
-                'min_length' => 'El apellido debe tener al menos 4 caracteres.',
-                'max_length' => '¡El apellido no debe contener más de 30 caracteres!.',
-                'alpha' => '¡El apellido solo debe contener letras!.'
-            )
-        );
-        $this->form_validation->set_rules(
-            'numerocelular',
-            'Número de Celular del cliente',
-            'exact_length[8]|is_natural',
-            array(
-                'exact_length' => '¡Ingrese un número de celular válido!.',
-                'is_natural' => '¡No ingrese caracteres que no sean números!.'
+                'min_length' => 'El apellido debe tener al menos 3 caracteres.',
+                'max_length' => '¡El apellido no debe contener más de 50 caracteres!.',
+               
             )
         );
         $this->form_validation->set_rules(
             'numeroci',
             'Número de Carnet del cliente',
-            'min_length[6]|max_length[8]|is_natural',
+            'min_length[6]|max_length[8]|is_natural|required',
             array(
+                'required' => 'Se requiere ingresar el primer apellido del cliente.',
                 'min_length' => '¡Ingrese un número de carnet válido!.',
                 'max_length' => '¡El número de carnet no debe contener más de 8 caracteres!.',
                 'is_natural' => '¡No ingrese caracteres que no sean números!.'
@@ -126,9 +108,9 @@ class Cliente extends CI_Controller
             $this->load->view('inc/creditosgentelella');
             $this->load->view('inc/footergentelella');
         } else {
-            $data['nombre'] = strtoupper($_POST['nombre']);
-            $data['primerApellido'] = strtoupper($_POST['primerapellido']);
-            $data['segundoApellido'] = strtoupper($_POST['segundoapellido']);
+            $data['nombre'] = mb_strtoupper($_POST['nombre']);
+            $data['primerApellido'] = mb_strtoupper($_POST['primerapellido']);
+            $data['segundoApellido'] = mb_strtoupper($_POST['segundoapellido']);
             $data['numeroCelular'] = $_POST['numerocelular'];
             $data['numeroCI'] = $_POST['numeroci'];
             $idPersona = $this->persona_model->agregarpersona($data);
@@ -142,9 +124,9 @@ class Cliente extends CI_Controller
     public function agregarbd2()
     {
 
-            $data['nombre'] = strtoupper($_POST['nombre']);
-            $data['primerApellido'] = strtoupper($_POST['primerapellido']);
-            $data['segundoApellido'] = strtoupper($_POST['segundoapellido']);
+            $data['nombre'] = mb_strtoupper($_POST['nombre']);
+            $data['primerApellido'] = mb_strtoupper($_POST['primerapellido']);
+            $data['segundoApellido'] = mb_strtoupper($_POST['segundoapellido']);
             $data['numeroCelular'] = $_POST['numerocelular'];
             $data['numeroCI'] = $_POST['numeroci'];
             $idPersona = $this->persona_model->agregarpersona($data);
@@ -177,9 +159,9 @@ class Cliente extends CI_Controller
     public function modificarbd()
     {
         $idcliente=$_POST['idpersona'];
-        $data['nombre']=strtoupper($_POST['nombre']);
-        $data['primerApellido']=strtoupper($_POST['primerapellido']);
-        $data['segundoApellido']=strtoupper($_POST['segundoapellido']);
+        $data['nombre']=mb_strtoupper($_POST['nombre']);
+        $data['primerApellido']=mb_strtoupper($_POST['primerapellido']);
+        $data['segundoApellido']=mb_strtoupper($_POST['segundoapellido']);
         $data['numeroCelular']=$_POST['numerocelular'];
         $data['numeroCI']=$_POST['numeroci'];
         $data['fechaActualizacion']=date('Y-m-d H:i:s');

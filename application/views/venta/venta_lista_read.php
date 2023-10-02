@@ -73,7 +73,7 @@
                                             foreach ($venta->result() as $row) {
                                             ?>
                                                 <tr>
-                                                    <td><?php echo $row->nombre.' '.$row->primerApellido; ?></td>
+                                                    <td><?php echo $row->nombreCliente; ?></td>
                                                     <td> <?php echo $row->total  ?></td>
                                                     <td><?php
                                                         if ($row->estado) {

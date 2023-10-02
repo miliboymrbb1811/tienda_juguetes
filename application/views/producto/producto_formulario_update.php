@@ -44,7 +44,8 @@
                                 <div class="col-md">
                                     <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $row->nombreProducto; ?>">
                                 </div>
-
+                            </div>
+                            <div class="item form-group has-feedback">
                                 <label class="col-form-label col-md-1 label-align" for="marca">Marca:</label>
                                 <div class="col-md">
                                     <select class="form-control" name="idmarca">
@@ -89,41 +90,40 @@
                             </div>
 
                             <div class="item form-group has-feedback">
-                                <label class="col-form-label col-md-1 label-align" for="precio">Precio:</label>
-                                <div class="col-md-3">
-                                    <input type="text" name="precio" placeholder="Precio" value="<?php echo $row->precio; ?>" class="form-control has-feedback-left">
-                                    <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
-                                </div>
+                                
                                 <label class="col-form-label col-md-1 label-align" for="codigo">codigo:</label>
-                                <div class="col-md-3">
+                                <div class="col-md">
                                     <input type="text" name="codigo" placeholder="codigo" value="<?php echo $row->codigo; ?>" class="form-control has-feedback-left">
                                     <span class="fa fa-paint-brush form-control-feedback left" aria-hidden="true"></span>
                                 </div>
                                 <label class="col-form-label col-md-1 label-align" for="stock">Stock:</label>
-                                <div class="col-md-3">
-                                    <input type="text" name="stock" placeholder="Stock" value="<?php echo $row->stock; ?>" class="form-control has-feedback-left">
+                                <div class="col-md">
+                                    <input type="number"  name="stock" placeholder="Stock" value="<?php echo $row->stock; ?>" class="form-control has-feedback-left">
                                     <span class="fa fa-cubes form-control-feedback left" aria-hidden="true"></span>
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="col-form-label col-md-1 label-align" for="descripcion">Descripcion:</label>
+                                <label class="col-form-label col-md-1 label-align" for="descripcion">PrecioCh.:</label>
                                 <div class="col-md">
-                                    <input type="text" name="descripcion" class="form-control has-feedback-left" value="<?php echo $row->descripcion; ?>">
+                                    <input type="number"  name="descripcion" class="form-control has-feedback-left" value="<?php echo $row->descripcion; ?>">
                                     <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
                                     <?php echo form_error('descripcion'); ?>
                                 </div>
+                                <label class="col-form-label col-md-1 label-align" for="precio">Precio:</label>
+                                <div class="col-md">
+                                    <input type="number"  name="precio" placeholder="Precio" value="<?php echo $row->precio; ?>" class="form-control has-feedback-left">
+                                    <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
+                                </div>
                             </div>
-                            <div class="item form-group">
+                            <div class="item form-group has-feedback">
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="col-form-label col-md-1 label-align">Imagen</label>
+                                
+                                    <label class="col-form-label col-md-1 label-align">Imagen</label>
                                         <div class="col-md">
                                             <input type="file" class="form-control" name="archivoImagen" id="archivoImagen" onchange='readURL(this);' />
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
+                         
+                                <div class="col-md">
                                     <?php
                                     if ($row->foto) {
                                     ?>

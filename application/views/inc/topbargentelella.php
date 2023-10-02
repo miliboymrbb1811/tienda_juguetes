@@ -12,20 +12,14 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                 <a href="<?php echo base_url(); ?>gentelella/javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                <font color="#73879c"  >  <?php echo $this->session->userdata('login') ?> </font>
+                <font color="red"  >  <?php echo $this->session->userdata('login') ?> </font>
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <?php
-                    echo form_open_multipart('usuarios/perfil');
-                    ?>
-                    <button class="dropdown-item" type="submit"> <i class="fa fa-user pull-right"></i>perfil</button>
-                    <?php
-                    echo form_close();
-                    ?>
+               
                     <?php
                     echo form_open_multipart('usuarios/logout');
                     ?>
-                    <button class="dropdown-item" type="submit"><i class="fa fa-sign-out pull-right"></i>Cerrar Sesión</button>
+                    <button class="btn btn-danger col-md-11" type="submit"><i class="fa fa-sign-out pull-right"></i>Cerrar Sesión</button>
                     <?php
                     echo form_close();
                     ?>

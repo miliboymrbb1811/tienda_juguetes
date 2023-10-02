@@ -46,11 +46,10 @@
                                         <thead>
                                             <tr class="text-center table-dark text-dark ">
                                                 <th>Nombre</th>
-                                                <th>Primer Apellido</th>
-                                                <th>Segundo Apellido</th>
-                                                <th>Nro. Celular</th>
-                                                <th>Nro. Carnet</th>
-                                                <th>Fecha de ingreso</th>
+                                                <th>Apellido paterno</th>
+                                                <th>Apellido materno</th>
+                                                <th>N°. Celular</th>
+                                                <th>N°. Carnet</th>
                                                 <th>Modificado</th>
                                                 <th>Acciones</th>
                                             </tr>
@@ -65,8 +64,7 @@
                                                     <td><?php echo $row->segundoApellido; ?></td>
                                                     <td><?php echo $row->numeroCelular; ?></td>
                                                     <td><?php echo $row->numeroCI; ?></td>
-                                                    <td><?php echo formatearFechaMasHora($row->fechaRegistro); ?></td>
-                                                    <td><?php echo formatearFechaMasHora($row->fechaActualizacion); ?></td>
+                                                    <td align="center"><?php echo formatearFechaMasHora($row->fechaActualizacion); ?></td>
 
                                                     <td class="text-center">
                                                         <?php echo form_open_multipart('empleado/habilitarbd'); ?>

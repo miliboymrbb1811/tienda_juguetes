@@ -47,16 +47,15 @@
                                         Estimado administrador, los clientes que usted está viendo a continuación se visualizarán al momento de realizar una venta, si desea realizar un reporte, haga click en una de las siguientes opciones que está debajo:
                                     </p>
 
-                                    <table id="datatable-buttons" class="table table-dark table-striped" style="width:100%">
+                                    <table id="datatable-buttons" class="table table-primary table-striped" style="width:100%">
                                         <thead>
-                                            <tr class="text-center table-dark text-dark">
-                                                <th>Nombre</th>
-                                                <th>Primer Apellido</th>
-                                                <th>Segundo Apellido</th>
+                                            <tr class="text-center table-danger text-dark">
+                                                <th>Nombre/s</th>
+                                                <th>Apellidos/s</th>
+                                                <th>departamento</th>
                                                 <th>Nro. Carnet</th>
                                                 <th>Nro. Celular</th>
                                                 <th>Creado</th>
-                                                <th>Modificado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -72,7 +71,6 @@
                                                 <td><?php echo $row->numeroCI; ?></td>
                                                 <td><?php echo $row->numeroCelular; ?></td>
                                                 <td><?php echo formatearFechaMasHora($row->fechaRegistro); ?></td>
-                                                <td><?php echo formatearFechaMasHora($row->fechaActualizacion); ?></td>
 
                                     <td class="text-center">
                                         <div class="btn-group">

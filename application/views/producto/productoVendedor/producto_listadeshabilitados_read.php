@@ -40,9 +40,9 @@
                                     <p class="text-muted font-13 m-b-30">
                                         Estimado administrador, los producto que usted está viendo a continuación no serán visibles al momento de realizar una compra o venta.
                                     </p>
-                                    <table id="datatable" class="table table-dark table-striped" style="width:100%">
+                                    <table id="datatable-buttons" class="table table-primary table-striped " style="width:100%">
                                         <thead>
-                                            <tr class="text-center table-dark text-dark">
+                                            <tr class="text-center table-danger text-dark">
                                                 <th>Foto</th>
                                                 <th>Marca</th>
                                                 <th>Categoria</th>

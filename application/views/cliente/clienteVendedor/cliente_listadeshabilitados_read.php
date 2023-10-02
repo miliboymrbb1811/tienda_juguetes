@@ -37,12 +37,12 @@
     <tr class="text-center table-dark text-dark">
     
     <th>Nombre</th>
-                                                <th>Primer Apellido</th>
-                                                <th>Segundo Apellido</th>
+                                                <th>Apellido/s</th>
+                                                <th>Departamento</th>
                                                 <th>Nro. Carnet</th>
                                                 <th>Nro. Celular</th>
                                                 <th>Creado</th>
-                                                <th>Modificado</th>
+                                                
                                                 <th>Acciones</th>
     </tr>
   </thead>
@@ -58,7 +58,6 @@
                                                 <td><?php echo $row->numeroCI; ?></td>
                                                 <td><?php echo $row->numeroCelular; ?></td>
                                                 <td><?php echo formatearFechaMasHora($row->fechaRegistro); ?></td>
-                                                <td><?php echo formatearFechaMasHora($row->fechaActualizacion); ?></td>
 
                 <td class="text-center">
                     <?php echo form_open_multipart('cliente/habilitarbd');?>

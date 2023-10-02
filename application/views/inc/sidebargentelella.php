@@ -1,6 +1,6 @@
-<div class="main_container">
+<div class="main_container  ">
         <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
+          <div class=" scroll-view">
       <div class="navbar nav_title">
         <a href="/juguetes" class="site_title"><i class="fa fa-paper-plane"></i> <span>IMPORTADORA </span></a>
         
@@ -38,32 +38,6 @@
             //muestra los paneles del admin
             if ($this->session->userdata('tipo') == 'admin') {
             ?>
-
-              <li>
-                <a>
-
-                  <i class="fa fa-male"></i> Empleados
-                  <span class="fa fa-chevron-down"></span>
-                </a>
-                <ul class="nav child_menu">
-                  <li>
-                    <?php echo form_open_multipart('empleado/index'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
-                      Empleados
-                    </button>
-                    <?php echo form_close(); ?>
-                  </li>
-                  <li>
-                    <?php echo form_open_multipart('empleado/deshabilitados');  ?>
-                    <button type="submit" class="col-md-11 btn btn-dark">
-                      Empleados Deshabilitados
-                    </button>
-                    <?php echo form_close(); ?>
-                  </li>
-                
-                </ul>
-              </li>
-
               <li>
                 <a>
 
@@ -74,37 +48,8 @@
                 <ul class="nav child_menu">
                   <li>
                     <?php echo form_open_multipart('usuarios/inicio'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                    <button type="submit"class="col-md-11 btn btn-dark" style=" border: 10px;">
                       usuarios
-                    </button>
-                    <?php echo form_close(); ?>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>
-                  <i class="fa fa-cubes"></i>producto
-                  <span class="fa fa-chevron-down"></span>
-                </a>
-                <ul class="nav child_menu">
-                  <li>
-                    <?php echo form_open_multipart('producto/index'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
-                      producto
-                    </button>
-                    <?php echo form_close(); ?>
-                  </li>
-                  <li>
-                    <?php echo form_open_multipart('categoria/index'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
-                      Categorías
-                    </button>
-                    <?php echo form_close(); ?>
-                  </li>
-                  <li>
-                    <?php echo form_open_multipart('marca/index'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
-                      marca
                     </button>
                     <?php echo form_close(); ?>
                   </li>
@@ -118,7 +63,7 @@
                 <ul class="nav child_menu">
                   <li>
                     <?php echo form_open_multipart('cliente/index'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                    <button  type="submit" class="col-md-11 btn btn-dark">
                       <!----------icono del boton----------->
                       <!--<i class="fa fa-group"></i> <br>-->
                       Clientes
@@ -139,19 +84,36 @@
               </li>
               <li>
                 <a>
-                  <i class="fa fa-folder-open"></i>reportes
+                  <i class="fa fa-cubes"></i>producto
                   <span class="fa fa-chevron-down"></span>
                 </a>
                 <ul class="nav child_menu">
                   <li>
-                    <?php echo form_open_multipart('reporte/index'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark">
-                      Reportes
+                    <?php echo form_open_multipart('producto/index'); ?>
+                    <button type="submit" class="col-md-11 btn btn-dark" style=" border: 2px;">
+                      Producto
+                    </button>
+                    <?php echo form_close(); ?>
+                  </li>
+                  <li>
+                    <?php echo form_open_multipart('categoria/index'); ?>
+                    <button type="submit" class="col-md-11 btn btn-dark" style=" border: 2px;">
+                      Cantidades
+                    </button>
+                    <?php echo form_close(); ?>
+                  </li>
+                  <li>
+                    <?php echo form_open_multipart('marca/index'); ?>
+                    <button type="submit" class="col-md-11 btn btn-dark" style=" border: 2px;">
+                      N° de tienda
                     </button>
                     <?php echo form_close(); ?>
                   </li>
                 </ul>
               </li>
+              <li>
+              </li>
+  
               <li>
                 <a>
                   <i class="fa fa-shopping-cart"></i>Ventas x
@@ -170,7 +132,7 @@
               </li>
             <?php
             } else if ($this->session->userdata('tipo') == 'vendedor') { ?>
-              <li>
+                 <li>
                 <a>
                   <i class="fa fa-users"></i>Clientes
                   <span class="fa fa-chevron-down"></span>
@@ -178,7 +140,7 @@
                 <ul class="nav child_menu">
                   <li>
                     <?php echo form_open_multipart('cliente/index2'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: ">
                       <!----------icono del boton----------->
                       <!--<i class="fa fa-group"></i> <br>-->
                       Clientes
@@ -205,14 +167,14 @@
                 <ul class="nav child_menu">
                   <li>
                     <?php echo form_open_multipart('producto/index2'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                    <button type="submit" class="col-md-11 btn btn-dark" style=" border: 2px;">
                       producto
                     </button>
                     <?php echo form_close(); ?>
                   </li>
                   <li>
                     <?php echo form_open_multipart('producto/deshabilitados'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark">
+                    <button type="submit" class="col-md-11 btn btn-dark" style=" border: 2px;">
                       productos deshabilitados
                     </button>
                     <?php echo form_close(); ?>
@@ -230,7 +192,7 @@
                 <ul class="nav child_menu">
                   <li>
                     <?php echo form_open_multipart('venta/index2'); ?>
-                    <button type="submit" class="col-md-11 btn btn-dark" style="background-color: transparent; border: none;">
+                    <button type="submit" class="col-md-11 btn btn-dark" style=" border: 2px;">
                       Venta
                     </button>
                     <?php echo form_close(); ?>
@@ -239,18 +201,19 @@
 
               </li>
 
-
-
-
-
             <?php } ?>
           </ul>
         </div>
+       
       </div>
       <!-- /sidebar menu -->
 
       <!-- /menu footer buttons -->
       <div id="identified0" class="sidebar-footer hidden-small">
-        <div class="pull-right">
-          Bootstrap Admin Template by sismrbb.-
+        <div class="pull-center">
+
+        Template by sismrbb-79958584
+          
+          
+          
         </div>

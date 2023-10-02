@@ -41,12 +41,12 @@
                                     <input type="text" name="nombre" value="<?php echo $row->nombre; ?>" class="form-control has-feedback-left" required>
                                     <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
                                 </div>
-                                <label class="col-form-label col-md-1 label-align" for="primerapellido">Primer Ap:</label>
+                                <label class="col-form-label col-md-1 label-align" for="primerapellido">apellido/s:</label>
                                 <div class="col-md-3">
                                     <input type="text" name="primerapellido" value="<?php echo $row->primerApellido; ?>" class="form-control has-feedback-left" required>
                                     <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
                                 </div>
-                                <label class="col-form-label col-md-1 label-align" for="segundoapellido">Segundo Ap:</label>
+                                <label class="col-form-label col-md-1 label-align" for="segundoapellido">Departamento:</label>
                                 <div class="col-md-3">
                                     <input type="text" name="segundoapellido" value="<?php echo $row->segundoApellido; ?>" class="form-control has-feedback-left">
                                     <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>

@@ -119,10 +119,10 @@ class Producto extends CI_Controller
                 $data['idMarca'] = $_POST['idmarca'];
                 $data['idCategoria'] = $_POST['idcategoria'];
                 $data['precio'] = $_POST['precio'];
-                $data['codigo'] = strtoupper($_POST['codigo']);
+                $data['codigo'] = mb_strtoupper($_POST['codigo']);
                 $data['stock'] = $_POST['stock'];
-                $data['descripcion'] = strtoupper($_POST['descripcion']);
-                $data['nombreProducto'] = strtoupper($_POST['nombre']);
+                $data['descripcion'] = mb_strtoupper($_POST['descripcion']);
+                $data['nombreProducto'] = mb_strtoupper($_POST['nombre']);
     
                 $data['foto'] = $nombreCompleto;
     
@@ -149,7 +149,39 @@ class Producto extends CI_Controller
         $this->load->view('inc/creditosgentelella');
         $this->load->view('inc/footergentelella');
     }
+//formulario para aumental stop
+    public function modificarCantidad()
+    {
+        $idproducto = $_POST['idproducto'];
+        $data['infoproducto'] = $this->producto_model->recuperarproductos($idproducto);
+        $this->load->view('inc/headergentelella');
+        $this->load->view('inc/sidebargentelella');
+        $this->load->view('inc/topbargentelella');
+        $this->load->view('producto/producto_formulario_update_cantidad', $data);
+        $this->load->view('inc/creditosgentelella');
+        $this->load->view('inc/footergentelella');
+    }
+    public function modificarbdcantidad()
+    {
+      
 
+        $idproducto = $_POST['idproducto'];
+
+        
+        $data['nombreProducto'] =mb_strtoupper($_POST['nombre']);
+        $data['precio'] = $_POST['precio'];
+        $data['codigo'] = mb_strtoupper($_POST['codigo']);
+        $data['stock'] = $_POST['stock'];
+        $data['descripcion'] = mb_strtoupper($_POST['descripcion']);
+        $data['fechaActualizacion'] = date('Y-m-d H:i:s');
+
+     
+            // echo "No hay datos";
+            $this->producto_model->modificarproductos($idproducto, $data);
+                redirect('producto/index', 'refresh');
+    
+
+    }
     public function modificarbd()
     {
       
@@ -157,13 +189,13 @@ class Producto extends CI_Controller
         $idproducto = $_POST['idproducto'];
 
         
-        $data['nombreProducto'] = $_POST['nombre'];
+        $data['nombreProducto'] =mb_strtoupper($_POST['nombre']);
         $data['idMarca'] = $_POST['idmarca'];
         $data['idCategoria'] = $_POST['idcategoria'];
         $data['precio'] = $_POST['precio'];
-        $data['codigo'] = strtoupper($_POST['codigo']);
+        $data['codigo'] = mb_strtoupper($_POST['codigo']);
         $data['stock'] = $_POST['stock'];
-        $data['descripcion'] = $_POST['descripcion'];
+        $data['descripcion'] = mb_strtoupper($_POST['descripcion']);
         $data['fechaActualizacion'] = date('Y-m-d H:i:s');
 
 

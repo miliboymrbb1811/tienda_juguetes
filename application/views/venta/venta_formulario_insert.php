@@ -24,10 +24,76 @@
     </div>
     <!-- Inicio Div Right Col Role Main -->
     <div class="container md-3">
-    <input hidden name="idUsuario" id="idUsuario" value="<?php echo $_SESSION['idusuario'] ?>">
+    <div class="row">
+            <!-- Inicio Div row -->
+            <div class="col-md-12 col-sm-12 ">
+                <!-- Inicio Div col-md-12 col-sm-12  -->
+                <div class="x_panel bg-dark text-white">
+                    <!-- Inicio Div x_panel -->
+                    <div class="x_title">
+                        <h2>Datos del Cliente</h2>
+                        <div class="clearfix">
+                        </div>
+
+                    </div>
+                    <div class="x_content">
+                        <!-- Inicio Div x_content -->
+
+                        <br>
+                        <p class="text-muted font-13 m-b-30">
+                            Usted va a insertar una nueva venta, por favor llene el siguiente campo:
+                        </p>
+
+                        <div class="item form-group has-feedback">
+                            <label class="col-form-label col-md-1 label-align">Carnet Identidad:</label>
+                            <div class="col-md-5">
+                                <input type="search" name="carnet" id="carnet" class="form-control"></input>
+                            </div>
+                            <input hidden name="idCliente" id="idCliente" value="0">
+                            <input hidden name="idUsuario" id="idUsuario" value="<?php echo $_SESSION['idusuario'] ?>">
+
+                            <label class="col-form-label col-md-1 label-align" for="primerapellido">Departamento:</label>
+
+                            <div class="col-md-5">
+                                <input id="segundoA" disabled class="form-control" placeholder="Sin departamento" value=""></input>
+                            </div>
+
+                          
+
+                        </div>
+
+                        <div class="item form-group has-feedback">
 
 
-        <div class="row">
+                        <label class="col-form-label col-md-1 label-align" for="nombre">Nombre/s Cliente:</label>
+                            <div class="col-md-5">
+                                <input class="form-control" disabled name="nombre" id="nombre" placeholder="Sin nombres" />
+                                <div id="suggestions">
+                                    <ul id="autoSuggestionsList"></ul>
+                                </div>
+
+                            </div>
+                            <label class="col-form-label col-md-1 label-align" for="primerapellido">Primer apellido:</label>
+
+                            <div class="col-md-5">
+                                <input id="primerA" disabled class="form-control" placeholder="Sin  apellidos" value=""></input>
+                            </div>
+
+                          
+                            <!-- <input type="hidden" name="idProducto[]" id="idProducto[]" value="0"> -->
+                        </div>
+                        <div class="item form-group has-feedback">
+                            <div class="col-md">
+                                <label for="">&nbsp;</label>
+                                <button class="btn btn-outline-primary btn-block" data-toggle="modal" data-target="#modal-default1">
+                                    <span class="fa fa-plus-circle"></span> Agregar Cliente</button>
+                            </div>
+                        </div>
+                    </div><!-- Fin Div x_content -->
+                </div><!-- Fin Div x_panel -->
+            </div><!-- Fin Div col-md-12 col-sm-12  -->
+        </div><!-- Fin Div row -
+    <div class="row">
             <!-- Inicio Div row -->
             <div class="col-md-12 col-sm-12 ">
                 <!-- Inicio Div col-md-12 col-sm-12  -->
@@ -49,12 +115,12 @@
                                 <input type="hidden" name="producto1" id="producto1" value="">
 
                             </div>
+                            <label class="col-form-label col-md-1 label-align text-center">Cajas disponibles:</label>
 
-                            <label class="col-form-label col-md-1 label-align">Marca:</label>
 
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" disabled value="" name="marca" id="marca" placeholder="Sin marca" />
-                                <!-- <input type="hidden" name="marca1" id="marca1" value=""> -->
+                            <div class="col-md-3 ">
+                                <input type="text" class="form-control" disabled value="" name="marca" id="marca" placeholder="Sin datos" />
+                              
 
                             </div>
 
@@ -91,14 +157,16 @@
                         <thead>
                             <tr class="headings">
 
-                                <th class="column-title">Foto </th>
-                                <th class="column-title">Nombre </th>
-                                <th class="column-title">Tienda </th>
-                                <th class="column-title">Precio </th>
-                                <th class="column-title">Stock </th>
-                                <th class="column-title">Cantidad </th>
-                                <th class="column-title">Codigo </th>
-                                <th class="column-title">SubTotal </th>
+                                <th class="column-title  ">Foto </th>
+                                <th class="column-title  text-center">Codigo </th>
+                                <th class="column-title  text-center">Descripcion</th>
+                                <th class="column-title  text-center">Precio Ch. </th>
+                                <th class="column-title  text-center">Precio venta </th>
+                                <th class="column-title  text-center">N° de cajas</th>
+                                <th class="column-title  text-center">Unidades por cajas</th>
+                                <th class="column-title  text-center">Stock </th>
+                                <th class="column-title  text-center">Cantidad </th>
+                                <th class="column-title  text-center">SubTotal </th>
                                 <th class="column-title no-link last"><span class="nobr">Eliminar</span>
                                 </th>
                                 <th class="bulk-actions" colspan="7">
@@ -148,38 +216,41 @@
                 </div>
                 <div class="modal-content alert alert-success ">
                     <div class="text-dark">
+                        
                         <p class=" text-dark font-13 m-b-30">
                             Usted va a insertar un nuevo cliente, por favor llene el siguiente campo:
                         </p>
                         <div class="item form-group has-feedback">
+                        <label class="col-form-label col-md-1 label-align" for="nombre">nombre/s:</label>
+<div class="col-md">
+    <input type="text" name="nombre" class="form-control has-feedback-left" value="<?php echo set_value('nombre'); ?>">
+    <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
+    <?php echo form_error('nombre'); ?>
+</div>
+<label class="col-form-label col-md-1 label-align" for="primerapellido">Apellido/s:</label>
+<div class="col-md">
+    <input type="text" name="primerapellido" class="form-control has-feedback-left" value="<?php echo set_value('primerapellido'); ?>">
+    <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
+    <?php echo form_error('primerapellido'); ?>
+</div>
 
 
 
-                            <label class="col-form-label col-md-1 label-align" for="nombre">nombre:</label>
-                            <div class="col-md">
-                                <input type="text" name="nombre" class="form-control has-feedback-left" value="<?php echo set_value('nombre'); ?>">
-                                <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
-                                <?php echo form_error('nombre'); ?>
-                            </div>
 
-                        </div>
+
+</div>
                         <div class="item form-group has-feedback">
 
-                            <label class="col-form-label col-md-1 label-align" for="primerapellido">Primer Apellido:</label>
-                            <div class="col-md">
-                                <input type="text" name="primerapellido" class="form-control has-feedback-left" value="<?php echo set_value('primerapellido'); ?>">
-                                <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
-                                <?php echo form_error('primerapellido'); ?>
-                            </div>
 
-                            <label class="col-form-label col-md-1 label-align" for="segundoapellido">Segundo Apellido:</label>
+                        <label class="col-form-label col-md-1 label-align" for="segundoapellido">Departamento:</label>
                             <div class="col-md">
                                 <input type="text" name="segundoapellido" class="form-control has-feedback-left" value="<?php echo set_value('segundoapellido'); ?>">
                                 <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
                                 <?php echo form_error('segundoapellido'); ?>
                             </div>
-
+                            
                         </div>
+                 
 
                         <div class="item form-group has-feedback">
                             <label class="col-form-label col-md-1 label-align" for="numerocelular">Nro. Celular:</label>
@@ -226,7 +297,7 @@
                 Se registro correctamente la venta, por favor entra a lista de venta.
             </div>
             <div class="modal-footer">
-            <?php echo form_open_multipart('venta/reportepdf'); ?>
+            <?php echo form_open_multipart('venta/reportepdf1'); ?>
                     <?php $pagoID=$this->db->query("SELECT MAX(idVenta) AS Venta 
                                                     FROM venta");
                     $lastID = 1 ;
@@ -282,7 +353,7 @@
         },
         select: function(event, ui) {
             $('#producto').val(ui.item.nombre + ' - ' + ui.item.codigo); // display the selected text
-            $('#marca').val(ui.item.marca); // display the selected text
+            $('#marca').val(ui.item.cajas); // display the selected text
             $('#precioU').val(ui.item.precioUnitario); // save selected id to input
             $('button[id=addProduct]').removeAttr('disabled');
             producto = ui.item;
@@ -291,6 +362,35 @@
     });
 
 
+    $("#carnet").autocomplete({
+        source: function(request, response) {
+            // Fetch data
+            $.ajax({
+                url: "<?= base_url() ?>index.php/venta/clientList",
+                type: 'post',
+                dataType: "json",
+                data: {
+                    search: request.term
+                },
+                success: function(data) {
+                    // console.log(data);
+                    response(data);
+                }
+            });
+        },
+        select: function(event, ui) {
+            // Set selection
+            $('#carnet').val(ui.item.value); // display the selected text
+            $('#primerA').val(ui.item.primerApellido); // display the selected text
+            $('#segundoA').val(ui.item.segundoApellido); // display the selected text
+            $('#nombre').val(ui.item.nombre); // save selected id to input
+            $('#idCliente').val(ui.item.idPersona); // save selected id to input
+            cliente = ui.item;
+
+            return false;
+        }
+    });
+
 
 
     console.log(producto);
@@ -298,19 +398,20 @@
     $(document).ready(function() {
         $("#addProduct").click(function() {
             // Para este ejemplo, en realidad no envíe el formulario
-            console.log("soy freeedy")
                         event.preventDefault();
-             markup = "<tr name='fila' id='fila" + count + "' class='even pointer'>" +
-                 "<td> <img id='productos' width='100' height='100' src='<?php echo  base_url(); ?>uploads/products_images/" + producto.foto + "'alt=''></td>" +
-                 "<td>" + producto.nombre + "<input class='form-control' name='idProducto[]' hidden type='number' value=" + producto.idProducto + " ></td>" +
-                 "<td>" + producto.marca + "</td>" +
-                 "<td name='precio'>" + producto.precioUnitario + "</td>" +
-                 "<td >" + producto.stock + "<input class='form-control stock' name='stock[]' hidden type='number' value=" + producto.stock + " ></td>" +
-                 "<td><input class='form-control' name='cantidad[]' onchange='cambiarSubtotal()' type='number' value='1' ></td>" +
-                 "<td>" + producto.codigo + "</td>" +
-                 "<td ><input class='form-control' name='subtotal[]' id='subtotal'  type='number' value=" + producto.precioUnitario + " ></td>" +
-                 "<td> <input type='button' class='form-control'  onclick='eliminarFila(" + count + ");' value='Eliminar' /></td>" +
-                 "</tr>";
+             markup = "<tr name='fila' id='fila" + count + "' class='even pointer' style='vertical-align: middle;'>" +
+    "<td> <img id='productos' width='150' height='150' src='<?php echo  base_url(); ?>uploads/products_images/" + producto.foto + "' alt=''></td>" +
+    "<td style='vertical-align: middle;'>" + producto.codigo + "</td>" +
+    "<td style='vertical-align: middle;'>" + producto.nombre + "<input class='form-control' name='idProducto[]' hidden type='number' value=" + producto.idProducto + " ></td>" +
+    "<td name='precio' style='vertical-align: middle; text-align: center;'>" + producto.descripcion + "</td>" +
+    "<td name='precio' style='vertical-align: middle; text-align: center;'>" + producto.precioUnitario + "</td>" +
+    "<td style='vertical-align: middle; text-align: center;'>" + producto.cajas + "</td>" +
+    "<td style='vertical-align: middle; text-align: center;'>" + producto.categoria + "</td>" +
+    "<td style='vertical-align: middle; text-align: center;'>" + producto.stock + "<input class='form-control stock' name='stock[]' hidden type='number' value=" + producto.stock + " ></td>" +
+    "<td style='vertical-align: middle;'><input class='form-control' name='cantidad[]' onchange='cambiarSubtotal()' type='number' value='1' ></td>" +
+    "<td style='vertical-align: middle;'><input class='form-control' name='subtotal[]' id='subtotal' type='text' value='" + producto.precioUnitario + "' readonly></td>" +
+    "<td style='vertical-align: middle;'><input type='button' class='form-control' onclick='eliminarFila(" + count + ");' value='Eliminar' /></td>" +
+"</tr>";
              tableBody = $("#bodyTabla");
              tableBody.append(markup);
              count += 1;
@@ -326,55 +427,36 @@
     }
 
     const cambiarSubtotal = () => {
+  let cantidad = document.getElementsByName("cantidad[]");
+  let precio = document.getElementsByName("precio");
+  let stock = document.getElementsByName("stock[]");
+  let subtotal = document.getElementsByName("subtotal[]");
 
-        let cantidad = document.getElementsByName("cantidad[]");
-        let precio = document.getElementsByName("precio");
-        let stock = document.getElementsByName("stock[]");
-        let subtotal = document.getElementsByName("subtotal[]");
+  for (var i = 0; i < cantidad.length; i++) {
+    if (cantidad[i].value <= Number(stock[i].value)) {
+      let subTotalValue = cantidad[i].value * precio[i].innerText;
+      subtotal[i].value = subTotalValue.toFixed(2); // Limitar a 2 decimales
+    } else {
+      alert('No puedes sobrepasar el stock');
+      cantidad[i].value = stock[i].innerText;
+      subtotal[i].value = precio[i].innerText;
+    }
+  }
+  cambiarTotal();
+};
 
+const cambiarTotal = () => {
+  let subtotal = document.getElementsByName("subtotal[]");
+  let total = document.getElementById('total');
 
-        for (var i = 0; i < cantidad.length; i++) {
-            if (cantidad[i].value <= Number(stock[i].value)) {
-                subtotal[i].value = cantidad[i].value * precio[i].innerText;
+  let count = 0;
 
-            } else {
-                alert('No puedes soprepasar el stock');
-                cantidad[i].value = stock[i].innerText;
-                subtotal[i].value = precio[i].innerText;
-            }
-        }
-        cambiarTotal();
+  for (var i = 0; i < subtotal.length; i++) {
+    count += Number(subtotal[i].value);
+  }
 
-    };
-
-    const cambiarTotal = () => {
-
-        let subtotal = document.getElementsByName("subtotal[]");
-        let total = document.getElementById('total');
-
-        let count = 0;
-
-        for (var i = 0; i < subtotal.length; i++) {
-            count += Number(subtotal[i].value);
-        }
-
-        total.value = count;
-
-    };
-
-
-
-    // function guardaryeditar() {
-
-    //     console.log(document.getElementsByClassName('formulario'));
-    //     //$("#btnGuardar").prop("disabled",true);
-    //     let formData = new FormData(document.getElementsByClassName('formulario'));
-    //     console.log(formData);
-    //     for (let obj of formData) {
-    //         console.log(obj);
-    //     }
-    // }
-
+  total.value = count.toFixed(2); // Limitar el total a 2 decimales
+};
 
 
     const guardaryeditar = (e) => {
@@ -384,7 +466,7 @@
         const formData = new FormData($("#formulario12")[0]);
         formData.append("total", document.getElementById("total").value);
         formData.append("idUsuario", document.getElementById("idUsuario").value);
-        formData.append("idCliente",3);
+        formData.append("idCliente",cliente.idPersona);
 
 
         $.ajax({
